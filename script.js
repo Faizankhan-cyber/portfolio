@@ -1,257 +1,606 @@
-// ======================================
-// Typing Animation
-// ======================================
+/*==========================================================
+    PORTFOLIO V3.0
+    Cloud Computing & Cybersecurity Portfolio
+==========================================================*/
 
-const roles = [
-    "Cloud & Cybersecurity Student",
-    "Python Learner",
-    "Azure Security Learner",
-    "Future Cloud Security Engineer"
+
+/*==========================================================
+    DOM ELEMENTS
+==========================================================*/
+
+const header = document.querySelector("header");
+
+const menuToggle = document.querySelector(".menu-toggle");
+
+const navLinks = document.querySelector(".nav-links");
+
+const navItems = document.querySelectorAll(".nav-links a");
+
+const backToTop = document.querySelector(".back-to-top");
+
+
+/*==========================================================
+    STICKY NAVBAR
+==========================================================*/
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 60) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/*==========================================================
+    MOBILE MENU
+==========================================================*/
+
+if(menuToggle){
+
+menuToggle.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("active");
+
+    menuToggle.classList.toggle("active");
+
+});
+
+}
+
+
+/*==========================================================
+    CLOSE MENU WHEN LINK IS CLICKED
+==========================================================*/
+
+navItems.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+    navLinks.classList.remove("active");
+
+    menuToggle.classList.remove("active");
+
+});
+
+});
+
+
+/*==========================================================
+    ACTIVE NAVIGATION LINK
+==========================================================*/
+
+const sections=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-120;
+
+const height=section.offsetHeight;
+
+if(window.scrollY>=top){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navItems.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#" + current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+
+/*==========================================================
+    BACK TO TOP
+==========================================================*/
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+backToTop.classList.add("active");
+
+}else{
+
+backToTop.classList.remove("active");
+
+}
+
+});
+
+
+if(backToTop){
+
+backToTop.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+
+}
+/*==========================================================
+    SCROLL REVEAL
+==========================================================*/
+
+const revealElements = document.querySelectorAll(
+".reveal, .fade-left, .fade-right, .zoom"
+);
+
+const revealObserver = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+});
+
+},{
+
+threshold:0.15
+
+});
+
+revealElements.forEach(el=>{
+
+revealObserver.observe(el);
+
+});
+
+
+/*==========================================================
+    DASHBOARD COUNTERS
+==========================================================*/
+
+const counters=document.querySelectorAll(".counter");
+
+const counterObserver=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(!entry.isIntersecting) return;
+
+const counter=entry.target;
+
+const target=+counter.dataset.target;
+
+let current=0;
+
+const increment=Math.max(1,Math.ceil(target/100));
+
+const updateCounter=()=>{
+
+current+=increment;
+
+if(current>=target){
+
+counter.innerText=target;
+
+}else{
+
+counter.innerText=current;
+
+requestAnimationFrame(updateCounter);
+
+}
+
+};
+
+updateCounter();
+
+counterObserver.unobserve(counter);
+
+});
+
+},{
+
+threshold:.5
+
+});
+
+counters.forEach(counter=>{
+
+counterObserver.observe(counter);
+
+});
+
+
+/*==========================================================
+    PARALLAX GLOW
+==========================================================*/
+
+const glow=document.querySelector(".background-glow");
+
+window.addEventListener("mousemove",(e)=>{
+
+if(!glow) return;
+
+const x=(e.clientX/window.innerWidth-.5)*30;
+
+const y=(e.clientY/window.innerHeight-.5)*30;
+
+glow.style.transform=`translate(${x}px, ${y}px)`;
+
+});
+
+
+/*==========================================================
+    PROJECT CARD TILT
+==========================================================*/
+
+const projectCards=document.querySelectorAll(".project-card");
+
+projectCards.forEach(card=>{
+
+card.addEventListener("mousemove",(e)=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+const rotateX=((y/rect.height)-0.5)*-8;
+
+const rotateY=((x/rect.width)-0.5)*8;
+
+card.style.transform=`
+perspective(1000px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-8px)
+`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="";
+
+});
+
+});
+
+
+/*==========================================================
+    BUTTON RIPPLE EFFECT
+==========================================================*/
+
+const buttons=document.querySelectorAll(".btn");
+
+buttons.forEach(button=>{
+
+button.addEventListener("click",(e)=>{
+
+const ripple=document.createElement("span");
+
+const rect=button.getBoundingClientRect();
+
+const size=Math.max(rect.width,rect.height);
+
+ripple.style.width=size+"px";
+
+ripple.style.height=size+"px";
+
+ripple.style.left=e.clientX-rect.left-size/2+"px";
+
+ripple.style.top=e.clientY-rect.top-size/2+"px";
+
+ripple.classList.add("ripple");
+
+button.appendChild(ripple);
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
+
+});
+/*==========================================================
+    TYPEWRITER EFFECT
+==========================================================*/
+
+const typingElement = document.querySelector(".typing");
+
+const words = [
+    "Cloud Computing",
+    "Cybersecurity",
+    "Azure",
+    "Python Developer",
+    "BCA Student"
 ];
 
-let roleIndex = 0;
+let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
-
-const typingElement = document.getElementById("typing");
 
 function typeEffect() {
 
     if (!typingElement) return;
 
-    const currentRole = roles[roleIndex];
+    const currentWord = words[wordIndex];
 
     if (!deleting) {
 
-        typingElement.textContent = currentRole.substring(0, charIndex++);
+        typingElement.textContent =
+            currentWord.substring(0, charIndex++);
+
+        if (charIndex > currentWord.length) {
+
+            deleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+
+        }
 
     } else {
 
-        typingElement.textContent = currentRole.substring(0, charIndex--);
+        typingElement.textContent =
+            currentWord.substring(0, charIndex--);
+
+        if (charIndex < 0) {
+
+            deleting = false;
+
+            wordIndex = (wordIndex + 1) % words.length;
+
+            charIndex = 0;
+
+        }
 
     }
 
-    let speed = deleting ? 50 : 90;
-
-    if (!deleting && charIndex > currentRole.length) {
-
-        deleting = true;
-        speed = 1800;
-
-    }
-
-    if (deleting && charIndex === 0) {
-
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-
-    }
-
-    setTimeout(typeEffect, speed);
+    setTimeout(typeEffect, deleting ? 40 : 90);
 
 }
 
 typeEffect();
 
 
-// ======================================
-// Active Navbar
-// ======================================
+/*==========================================================
+    SMOOTH SCROLL
+==========================================================*/
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-window.addEventListener("scroll", () => {
+anchor.addEventListener("click",function(e){
 
-    let current = "";
+e.preventDefault();
 
-    sections.forEach(section => {
+const target=document.querySelector(this.getAttribute("href"));
 
-        const sectionTop = section.offsetTop - 150;
+if(target){
 
-        if (window.scrollY >= sectionTop) {
+target.scrollIntoView({
 
-            current = section.getAttribute("id");
+behavior:"smooth",
 
-        }
+block:"start"
 
-    });
+});
 
-    navLinks.forEach(link => {
+}
 
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-
-            link.classList.add("active");
-
-        }
-
-    });
+});
 
 });
 
 
-// ======================================
-// Scroll Reveal Animation
-// ======================================
+/*==========================================================
+    PRELOADER
+==========================================================*/
 
-const observer = new IntersectionObserver((entries) => {
+window.addEventListener("load",()=>{
 
-    entries.forEach(entry => {
+const loader=document.querySelector(".preloader");
 
-        if (entry.isIntersecting) {
+if(loader){
 
-            entry.target.classList.add("show");
+loader.style.opacity="0";
 
-        }
+setTimeout(()=>{
 
-    });
+loader.remove();
 
-}, {
+},600);
 
-    threshold: 0.15
-
-});
-
-document.querySelectorAll("section").forEach(section => {
-
-    section.classList.add("hidden");
-
-    observer.observe(section);
+}
 
 });
 
 
-// ======================================
-// Scroll To Top Button
-// ======================================
+/*==========================================================
+    DYNAMIC YEAR
+==========================================================*/
 
-const topButton = document.createElement("button");
+const year=document.querySelector(".year");
 
-topButton.id = "topBtn";
-topButton.innerHTML = "↑";
+if(year){
 
-document.body.appendChild(topButton);
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 400) {
-
-        topButton.style.display = "flex";
-
-    } else {
-
-        topButton.style.display = "none";
-
-    }
-
-});
-
-topButton.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-        behavior: "smooth"
-
-    });
-
-});
-
-
-// ======================================
-// Dynamic Footer Year
-// ======================================
-
-const footer = document.querySelector("footer");
-
-if (footer) {
-
-    footer.innerHTML =
-        `© ${new Date().getFullYear()} Faizan Khan | Built with HTML, CSS & JavaScript`;
+year.textContent=new Date().getFullYear();
 
 }
 
 
-// ======================================
-// Navbar Shadow
-// ======================================
+/*==========================================================
+    NETWORK PARTICLES
+==========================================================*/
 
-const header = document.querySelector("header");
+const canvas=document.getElementById("networkCanvas");
 
-window.addEventListener("scroll", () => {
+if(canvas){
 
-    if (window.scrollY > 80) {
+const ctx=canvas.getContext("2d");
 
-        header.style.boxShadow = "0 10px 25px rgba(0,0,0,.35)";
+canvas.width=window.innerWidth;
 
-    } else {
+canvas.height=window.innerHeight;
 
-        header.style.boxShadow = "none";
+const particles=[];
 
-    }
+for(let i=0;i<80;i++){
 
-});
+particles.push({
 
+x:Math.random()*canvas.width,
 
-// ======================================
-// Smooth Scroll
-// ======================================
+y:Math.random()*canvas.height,
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+vx:(Math.random()-0.5)*0.4,
 
-    anchor.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-
-            target.scrollIntoView({
-
-                behavior: "smooth"
-
-            });
-
-        }
-
-    });
+vy:(Math.random()-0.5)*0.4
 
 });
 
+}
 
-// ======================================
-// Profile Image Hover Effect
-// ======================================
+function animate(){
 
-const image = document.querySelector(".image-box");
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-if (image) {
+particles.forEach((p,index)=>{
 
-    image.addEventListener("mousemove", () => {
+p.x+=p.vx;
 
-        image.style.transform = "scale(1.04) rotate(2deg)";
-        image.style.transition = ".35s";
+p.y+=p.vy;
 
-    });
+if(p.x<0||p.x>canvas.width)p.vx*=-1;
 
-    image.addEventListener("mouseleave", () => {
+if(p.y<0||p.y>canvas.height)p.vy*=-1;
 
-        image.style.transform = "scale(1) rotate(0deg)";
+ctx.beginPath();
 
-    });
+ctx.arc(p.x,p.y,2,0,Math.PI*2);
+
+ctx.fillStyle="#00C2FF";
+
+ctx.fill();
+
+for(let j=index+1;j<particles.length;j++){
+
+const p2=particles[j];
+
+const dx=p.x-p2.x;
+
+const dy=p.y-p2.y;
+
+const distance=Math.sqrt(dx*dx+dy*dy);
+
+if(distance<120){
+
+ctx.beginPath();
+
+ctx.moveTo(p.x,p.y);
+
+ctx.lineTo(p2.x,p2.y);
+
+ctx.strokeStyle=`rgba(0,194,255,${
+1-distance/120
+})`;
+
+ctx.stroke();
+
+}
+
+}
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+window.addEventListener("resize",()=>{
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+});
 
 }
 
 
-// ======================================
-// Fade In Page
-// ======================================
+/*==========================================================
+    IMAGE LAZY LOADING
+==========================================================*/
 
-window.addEventListener("load", () => {
+const lazyImages=document.querySelectorAll("img[data-src]");
 
-    document.body.style.opacity = "1";
+const imageObserver=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const img=entry.target;
+
+img.src=img.dataset.src;
+
+img.removeAttribute("data-src");
+
+imageObserver.unobserve(img);
+
+}
 
 });
+
+});
+
+lazyImages.forEach(img=>{
+
+imageObserver.observe(img);
+
+});
+
+
+/*==========================================================
+    CONSOLE MESSAGE
+==========================================================*/
+
+console.log(
+"%cWelcome to Faizan Khan's Portfolio",
+"color:#00C2FF;font-size:18px;font-weight:bold;"
+);
+
+console.log(
+"%cCloud Computing & Cybersecurity",
+"color:#38BDF8;font-size:14px;"
+);
