@@ -1,28 +1,385 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Faizan | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faizan Khan | Cloud & Cybersecurity</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
 
-  <h1>Hi, I'm Faizan</h1>
-  <p>BCA Student | Linux • Cloud • Cybersecurity</p>
+    <!-- Navigation -->
 
-  <h2>About Me</h2>
-  <p>I am building skills in Linux system administration, cloud computing, and cybersecurity.</p>
+    <header>
 
-  <h2>Projects</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/yourusername/linux-system-administration-lab">
-        Linux System Administration Lab
-      </a>
-    </li>
-  </ul>
+        <div class="logo">
+            Faizan Khan
+        </div>
 
-  <h2>Contact</h2>
-  <p>Email: your email</p>
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#certifications">Certifications</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <section class="hero" id="home">
+
+    <div class="hero-left">
+
+        <p class="badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            Cloud • Cybersecurity • BCA Student
+        </p>
+
+        <h1>
+
+            Hi, I'm
+
+            <span>Faizan Khan</span>
+
+        </h1>
+
+        <h2 id="typing"></h2>
+
+        <p class="hero-description">
+
+            I'm a BCA student specializing in Cloud Computing and Cybersecurity.
+
+            I enjoy building projects, learning Azure and Python, exploring networking concepts,
+            and documenting everything on GitHub while preparing for a career in Cloud Security.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn">
+
+                View Projects
+
+            </a>
+
+            <a href="resume.pdf"
+                download
+                class="btn secondary">
+
+                Download Resume
+
+            </a>
+
+        </div>
+
+        <div class="socials">
+
+            <a href="https://github.com/Faizankhan-cyber"
+                target="_blank">
+
+                <i class="fab fa-github"></i>
+
+            </a>
+
+            <a href="https://www.linkedin.com/in/faizan-khan-khaleel/"
+                target="_blank">
+
+                <i class="fab fa-linkedin"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-right">
+
+        <div class="image-box">
+
+            <img src="images/profile.jpg">
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- About -->
+
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-box">
+
+            <p>
+
+                I'm a BCA student specializing in Cloud Computing and Cybersecurity.
+                My goal is to become a Cloud Security Engineer by gaining practical experience through
+                certifications, projects, hackathons, and continuous learning.
+
+                I enjoy learning about Azure, networking, Linux, and security while documenting my
+                journey on GitHub and LinkedIn.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Skills -->
+
+    <section id="skills">
+
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="card">Python</div>
+
+            <div class="card">Azure (Learning)</div>
+
+            <div class="card">AWS (Learning)</div>
+
+            <div class="card">Linux</div>
+
+            <div class="card">Networking</div>
+
+            <div class="card">Cybersecurity</div>
+
+            <div class="card">SQL</div>
+
+            <div class="card">Git & GitHub</div>
+
+            <div class="card">HTML</div>
+
+            <div class="card">CSS</div>
+
+        </div>
+
+    </section>
+
+
+
+ <section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+        <!-- Project 1 -->
+
+        <div class="project-card">
+
+            <img src="images/portscanner.png" alt="Port Scanner">
+
+            <div class="project-content">
+
+                <h3>Python Port Scanner</h3>
+
+                <p>
+
+                    A TCP port scanner built using Python that scans target hosts for open ports.
+
+                </p>
+
+                <div class="tech">
+
+                    <span>Python</span>
+
+                    <span>Networking</span>
+
+                    <span>Sockets</span>
+
+                </div>
+
+                <a href="https://github.com/Faizankhan-cyber"
+                    target="_blank"
+                    class="project-btn">
+
+                    View Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Project 2 -->
+
+        <div class="project-card">
+
+            <img src="images/bountyvault.png" alt="BountyVault">
+
+            <div class="project-content">
+
+                <h3>BountyVault</h3>
+
+                <p>
+
+                    Decentralized escrow platform built during a hackathon using the Algorand blockchain.
+
+                </p>
+
+                <div class="tech">
+
+                    <span>Algorand</span>
+
+                    <span>Node.js</span>
+
+                    <span>SQLite</span>
+
+                </div>
+
+                <a href="https://github.com/Faizankhan-cyber"
+                    target="_blank"
+                    class="project-btn">
+
+                    View Project
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Future Project -->
+
+        <div class="project-card">
+
+            <img src="images/comingsoon.png" alt="Coming Soon">
+
+            <div class="project-content">
+
+                <h3>Azure Security Project</h3>
+
+                <p>
+
+                    Coming soon as I complete Microsoft SC-900 and begin building Azure cloud security projects.
+
+                </p>
+
+                <div class="tech">
+
+                    <span>Azure</span>
+
+                    <span>SC-900</span>
+
+                    <span>Cloud</span>
+
+                </div>
+
+                <a href="#" class="project-btn">
+
+                    Coming Soon
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <!-- Certifications -->
+
+    <section id="certifications">
+
+        <h2 class="section-title">Certifications</h2>
+
+        <div class="cert-grid">
+
+            <div class="card">
+                Cisco Introduction to Cybersecurity
+            </div>
+
+            <div class="card">
+                Deloitte Cyber Virtual Experience
+            </div>
+
+            <div class="card">
+                TryHackMe Pre Security
+            </div>
+
+            <div class="card">
+                Microsoft SC-900 (In Progress)
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Contact -->
+
+    <section id="contact">
+
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact-icons">
+
+            <a href="https://github.com/Faizankhan-cyber" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/faizan-khan-khaleel/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="mailto:your@email.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        © 2026 Faizan Khan | Built with HTML, CSS & JavaScript
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
