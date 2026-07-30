@@ -4,7 +4,7 @@ A modern, responsive cybersecurity-themed portfolio showcasing my projects, cert
 
 ## 🌐 Live Website
 
-**Portfolio:** https://YOUR-DOMAIN.vercel.app
+**Portfolio:** http://faizankhank.vercel.app/
 
 ---
 
