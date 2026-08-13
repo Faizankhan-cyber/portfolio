@@ -1,110 +1,79 @@
-# 🛡️ Faizan Khan | Cybersecurity Portfolio
+# 🛡️ Cybersecurity Portfolio
 
-A modern, responsive cybersecurity-themed portfolio showcasing my projects, certifications, technical skills, and learning journey in Cloud Computing and Cybersecurity.
+A modern, responsive portfolio website showcasing my **projects, certifications, technical skills, and learning journey** in Cloud Computing and Cybersecurity.
 
 ## 🌐 Live Website
 
-**Portfolio:** http://faizankhank.vercel.app/
+**[faizankhank.vercel.app](https://faizankhank.vercel.app/)**
 
 ---
 
 ## 📌 About
 
-This portfolio serves as my personal website and professional portfolio, highlighting my work as a BCA student specializing in **Cloud Computing & Cybersecurity**.
+This is my personal portfolio website as a **BCA student focused on Cloud Computing and Cybersecurity**.
 
-It showcases:
-
-- 💻 Technical Projects
-- ☁️ Cloud & Cybersecurity Skills
-- 📜 Certifications
-- 📈 Learning Journey
-- 📞 Contact Information
+The portfolio highlights my hands-on projects, technical skills, certifications, and progress toward a career in **Cloud Security**.
 
 ---
 
 ## 🚀 Features
 
-- Responsive design
-- Modern cybersecurity-inspired UI
-- Interactive animations
-- Security dashboard
-- Featured project showcase
-- Certification section
-- Career timeline
-- Smooth scrolling navigation
-- Mobile-friendly layout
-
----
-
-## 🛠️ Built With
-
-- HTML5
-- CSS3
-- JavaScript
-- Font Awesome
-- Google Fonts
+* Responsive and mobile-friendly design
+* Cybersecurity-inspired interface
+* Interactive animations
+* Project showcase
+* Certifications section
+* Technical skills section
+* Career and learning timeline
+* Contact section
+* Smooth scrolling navigation
 
 ---
 
 ## 📂 Featured Projects
 
-### 🏆 BountyVault
-Blockchain-based bounty management platform developed during the AlgoBharat × Algorand Foundation India Hackathon.
+### ☁️ Azure Enterprise Infrastructure
+
+A hands-on Azure infrastructure project focused on deploying and securing a Linux web server in the cloud.
+
+**Tech:** Azure • VNet • Subnet • NSG • Ubuntu VM • SSH • Nginx
+
+---
+
+### 🔐 BountyVault
+
+A decentralized bounty escrow platform built on the **Algorand blockchain** during the AlgoBharat × Algorand Foundation India Hackathon.
 
 **Role:** Backend Lead
 
----
-
-### 🐧 Linux System Administration Lab
-
-Hands-on Linux administration project covering:
-
-- User Management
-- File Permissions
-- Bash Scripting
-- Process Management
-- Networking
-- Package Management
-
----
-
-### 🔍 Python Port Scanner
-
-TCP Port Scanner built using Python sockets for identifying open ports and learning network reconnaissance.
-
----
-
-### 🌐 Cybersecurity Portfolio
-
-This website itself.
-
-Designed and developed from scratch using HTML, CSS and JavaScript.
+**Tech:** Algorand • AlgoKit • Python • Node.js • Express • SQLite • Pera Wallet
 
 ---
 
 ## 📜 Certifications
 
-- Cisco – Introduction to Cybersecurity
-- TryHackMe – Pre Security
-- Deloitte – Cyber Job Simulation
-- Abstream Technologies – Introduction to Cloud Computing
-- Abstream Technologies – Linux System Engineering
+* Cisco – Introduction to Cybersecurity
+* TryHackMe – Pre Security
+* Deloitte – Cyber Job Simulation
+* Abstream Technologies – Introduction to Cloud Computing
+* Abstream Technologies – Linux System Engineering
 
 ---
 
-## 📷 Preview
+## 🛠️ Built With
 
-![Portfolio Screenshot](images/portfolio-preview.png)
-
-> Replace this image with a screenshot of your homepage.
+* HTML5
+* CSS3
+* JavaScript
+* Font Awesome
+* Google Fonts
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 portfolio/
-│
 ├── index.html
 ├── style.css
 ├── script.js
@@ -123,32 +92,25 @@ Clone the repository:
 git clone https://github.com/Faizankhan-cyber/YOUR-REPOSITORY.git
 ```
 
-Open:
-
-```text
-index.html
-```
-
-in your browser.
+Open `index.html` in your browser.
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 About Me
 
 **Faizan Khan**
 
-BCA Student (Cloud Computing & Cybersecurity)
+BCA Student focused on **Cloud Computing & Cybersecurity**.
 
-### Connect with me
+Currently building my skills through **cloud projects, cybersecurity labs, certifications, and hackathons**.
 
-- GitHub: https://github.com/Faizankhan-cyber
-- LinkedIn: https://linkedin.com/in/faizan-khan-khaleel
-- Portfolio: https://YOUR-DOMAIN.vercel.app
+### 🔗 Connect
+
+* **GitHub:** https://github.com/Faizankhan-cyber
+* **LinkedIn:** https://linkedin.com/in/faizankhan-khaleel/
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
-Feel free to fork the project for learning purposes.
+MIT License
