@@ -6,155 +6,128 @@ interface ContactProps {
 }
 
 export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
-  const [copiedChannel, setCopiedChannel] = useState<string | null>(null);
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const [copied, setCopied] = useState(false);
 
-  const handleCopy = (text: string, id: string) => {
+  const handleCopyEmail = () => {
     if (navigator?.clipboard?.writeText) {
-      navigator.clipboard.writeText(text);
-      setCopiedChannel(id);
-      setTimeout(() => setCopiedChannel(null), 2500);
+      navigator.clipboard.writeText(PERSONAL_INFO.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
     }
-  };
-
-  const handleSendMessage = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailtoUrl = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(
-      subject || 'Inquiry: Cloud Security Portfolio'
-    )}&body=${encodeURIComponent(message)}`;
-    window.location.href = mailtoUrl;
   };
 
   return (
     <section id="contact">
       <div className="container">
         <div className="section-heading">
-          <span className="terminal-meta-tag">COMM_CHANNEL // CONNECT_SECURE</span>
-          <h2>Execute Contact</h2>
+          <span className="terminal-meta-tag">COMMUNICATION // DIRECT_CHANNELS</span>
+          <h2>Get in Touch</h2>
           <p className="subheading">
-            Direct communication sockets for cloud security internships, technical discussions, and infrastructure collaboration.
+            Direct communication sockets for discussing cloud architecture projects, internship opportunities, or security lab collaborations.
           </p>
         </div>
 
-        <div className="contact-terminal-grid">
-          {/* Left: Quick Dispatch Terminal */}
-          <div className="contact-terminal-window">
-            <div className="terminal-titlebar">
-              <div className="window-controls">
-                <span className="control-dot close" />
-                <span className="control-dot minimize" />
-                <span className="control-dot expand" />
-              </div>
-              <span className="terminal-title">message_dispatcher.sh</span>
-              <span className="terminal-chip">SOCKET:OPEN</span>
+        <div style={{ maxWidth: '850px', margin: '0 auto' }}>
+          {/* Main Direct Channel Card */}
+          <div
+            className="terminal-card"
+            style={{
+              padding: '36px',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '20px'
+            }}
+          >
+            <div
+              style={{
+                width: '64px',
+                height: '64px',
+                borderRadius: '50%',
+                background: 'rgba(0, 245, 160, 0.1)',
+                border: '1px solid var(--border)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--primary)',
+                fontSize: '1.8rem'
+              }}
+            >
+              <i className="fa-solid fa-envelope" aria-hidden="true" />
             </div>
 
-            <form onSubmit={handleSendMessage} style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div>
-                <label
-                  htmlFor="contact-target"
-                  style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: '0.78rem', color: 'var(--primary)', marginBottom: '6px' }}
-                >
-                  TARGET_RECIPIENT:
-                </label>
-                <input
-                  id="contact-target"
-                  type="text"
-                  value={PERSONAL_INFO.email}
-                  disabled
-                  style={{
-                    width: '100%',
-                    padding: '10px 14px',
-                    borderRadius: 'var(--radius-sm)',
-                    background: 'rgba(0, 0, 0, 0.4)',
-                    border: '1px solid var(--border)',
-                    color: 'var(--text-bright)',
-                    fontFamily: 'var(--mono)',
-                    fontSize: '0.85rem'
-                  }}
-                />
-              </div>
+            <div>
+              <h3 style={{ fontSize: '1.6rem', marginBottom: '6px' }}>Direct Email Contact</h3>
+              <p style={{ color: 'var(--muted)', fontSize: '0.95rem' }}>
+                For technical discussions, internships, or reviewing my project code:
+              </p>
+              <span
+                style={{
+                  display: 'inline-block',
+                  fontFamily: 'var(--mono)',
+                  fontSize: '1.15rem',
+                  color: 'var(--primary)',
+                  fontWeight: 600,
+                  marginTop: '10px'
+                }}
+              >
+                {PERSONAL_INFO.email}
+              </span>
+            </div>
 
-              <div>
-                <label
-                  htmlFor="contact-subject"
-                  style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: '0.78rem', color: 'var(--primary)', marginBottom: '6px' }}
-                >
-                  SUBJECT_LINE:
-                </label>
-                <input
-                  id="contact-subject"
-                  type="text"
-                  placeholder="e.g., Cloud Security Project Collaboration"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '10px 14px',
-                    borderRadius: 'var(--radius-sm)',
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid var(--border-subtle)',
-                    color: 'var(--text-bright)',
-                    fontFamily: 'var(--mono)',
-                    fontSize: '0.85rem'
-                  }}
-                  required
-                />
-              </div>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                className="btn-terminal"
+                aria-label={`Send email directly to ${PERSONAL_INFO.email}`}
+              >
+                <i className="fa-solid fa-paper-plane" />
+                <span>Launch Email Client</span>
+              </a>
 
-              <div>
-                <label
-                  htmlFor="contact-body"
-                  style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: '0.78rem', color: 'var(--primary)', marginBottom: '6px' }}
-                >
-                  TRANSMISSION_PAYLOAD:
-                </label>
-                <textarea
-                  id="contact-body"
-                  rows={4}
-                  placeholder="Enter message details or interview invitation..."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  style={{
-                    width: '100%',
-                    padding: '12px 14px',
-                    borderRadius: 'var(--radius-sm)',
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    border: '1px solid var(--border-subtle)',
-                    color: 'var(--text-bright)',
-                    fontFamily: 'var(--mono)',
-                    fontSize: '0.85rem',
-                    resize: 'vertical'
-                  }}
-                  required
-                />
-              </div>
+              <button
+                type="button"
+                className="btn-terminal-outline"
+                onClick={handleCopyEmail}
+                aria-label="Copy email address to clipboard"
+              >
+                <i className="fa-solid fa-copy" />
+                <span>{copied ? '✓ Email Copied!' : 'Copy Email Address'}</span>
+              </button>
 
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '6px' }}>
-                <button type="submit" className="btn-terminal" style={{ flex: 1 }}>
-                  <i className="fa-solid fa-paper-plane" />
-                  <span>send_transmission()</span>
+              {onOpenResume && (
+                <button
+                  type="button"
+                  className="btn-terminal-outline"
+                  onClick={onOpenResume}
+                  aria-label="View verified resume"
+                >
+                  <i className="fa-solid fa-file-lines" />
+                  <span>View Resume</span>
                 </button>
-
-                {onOpenResume && (
-                  <button
-                    type="button"
-                    className="btn-terminal-outline"
-                    onClick={onOpenResume}
-                  >
-                    <i className="fa-solid fa-file-code" />
-                    <span>Resume</span>
-                  </button>
-                )}
-              </div>
-            </form>
+              )}
+            </div>
           </div>
 
-          {/* Right: Direct Connection Channels */}
-          <div className="contact-channels-grid">
-            {CONTACT_CHANNELS.map((channel) => (
-              <div key={channel.id} className="contact-channel-card">
+          {/* Social Profiles Grid */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '18px',
+              marginTop: '24px'
+            }}
+          >
+            {CONTACT_CHANNELS.filter((c) => c.id !== 'email').map((channel) => (
+              <a
+                key={channel.id}
+                href={channel.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-channel-card"
+                aria-label={`Open ${channel.name} Profile`}
+              >
                 <div className="channel-left">
                   <div className="channel-icon">
                     <i className={channel.icon} aria-hidden="true" />
@@ -162,49 +135,11 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
                   <div className="channel-details">
                     <h4>{channel.name}</h4>
                     <span className="command">{channel.command}</span>
-                    <span className="label">
-                      {copiedChannel === channel.id ? '✓ COPIED TO CLIPBOARD' : channel.label}
-                    </span>
+                    <span className="label">{channel.label}</span>
                   </div>
                 </div>
-
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  {channel.id === 'email' ? (
-                    <>
-                      <button
-                        type="button"
-                        className="channel-action-btn"
-                        onClick={() => handleCopy(PERSONAL_INFO.email, 'email')}
-                        title="Copy email to clipboard"
-                        aria-label="Copy email address"
-                      >
-                        <i className="fa-solid fa-copy" />
-                        <span>Copy</span>
-                      </button>
-                      <a
-                        href={channel.href}
-                        className="channel-action-btn"
-                        style={{ background: 'var(--primary)', color: '#050807' }}
-                        aria-label="Send email"
-                      >
-                        <i className="fa-solid fa-arrow-up-right-from-square" />
-                        <span>Mail</span>
-                      </a>
-                    </>
-                  ) : (
-                    <a
-                      href={channel.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="channel-action-btn"
-                      aria-label={`Open ${channel.name}`}
-                    >
-                      <i className="fa-solid fa-arrow-up-right-from-square" />
-                      <span>Connect</span>
-                    </a>
-                  )}
-                </div>
-              </div>
+                <i className="fa-solid fa-arrow-up-right-from-square" style={{ color: 'var(--primary)' }} />
+              </a>
             ))}
           </div>
         </div>

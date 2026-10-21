@@ -1,356 +1,361 @@
 import {
   StatItem,
   AboutCardItem,
-  TechGroup,
+  SkillCategoryGroup,
   ProjectItem,
-  CertificationItem,
-  JourneyMilestone,
+  CredentialItem,
+  ExperienceItem,
   ContactChannel
 } from '../types';
 
 export const PERSONAL_INFO = {
-  name: 'Faizan Khan',
-  terminalUser: 'root@FaizanKhan',
-  systemStatus: 'SYSTEM.STATUS: ONLINE',
-  role: 'Cloud Security & Infrastructure',
-  subRole: 'Cloud Computing & Cybersecurity Student',
-  badge: 'SECURITY OPERATIONS PORTFOLIO',
-  bio: 'Building secure cloud systems through hands-on projects and practical labs. BCA student passionate about cloud architecture, network security, and infrastructure automation.',
+  name: 'Faizan Khan Khaleel',
+  shortName: 'Faizan Khan',
+  terminalLogo: 'root@faizan',
   location: 'Bengaluru, Karnataka, India',
+  college: 'SSMRV College',
+  degree: 'Bachelor of Computer Applications (BCA)',
+  diploma: 'Advanced Diploma in Cloud Architecture and Cybersecurity',
+  role: 'Cloud Architecture & Cybersecurity Student',
+  headline: 'Building secure cloud infrastructure. Learning to defend it.',
+  introduction:
+    "I'm a BCA student specializing in Cloud Architecture and Cybersecurity. I build hands-on projects around Azure infrastructure, identity and access management, Linux, and digital threat detection, documenting what I learn along the way.",
   email: 'faizankhanex@gmail.com',
-  github: 'https://github.com/Faizankhank-cy',
-  githubSecondary: 'https://github.com/Faizankhan-cyber',
+  github: 'https://github.com/Faizankhan-cyber',
   linkedin: 'https://www.linkedin.com/in/faizan-khan-khaleel/',
-  technicalTags: [
-    'CLOUD SECURITY',
-    'AZURE INFRA',
-    'PYTHON AUTOMATION'
+  skillTags: [
+    'Microsoft Azure',
+    'Entra ID & RBAC',
+    'Linux Administration',
+    'Terraform IaC',
+    'Threat Analysis',
+    'Network Security'
   ],
-  terminalBootSequence: [
-    { text: 'system.boot()', delay: 100 },
-    { text: 'initializing cloud_modules...', delay: 400 },
-    { text: 'identity: cloud_security_student', delay: 800 },
-    { text: 'target_stack: [azure, linux, python]', delay: 1200 },
-    { text: 'security_checks: active', delay: 1600 },
-    { text: 'establishing secure connection...', delay: 2000 },
-    { text: 'root@faizan:~# ready for mission directives', delay: 2400 }
-  ]
+  currentFocus: {
+    title: 'Current Technical Focus',
+    target: 'Azure Infrastructure & IAM Hardening',
+    labInProgress: 'Multi-Role RBAC & Terraform Automation',
+    studyTrack: 'Security, Compliance & Identity (SC-900 / AZ-900)',
+    operatingSystem: 'Ubuntu Linux 24.04 LTS (Primary Lab OS)'
+  }
 };
 
-export const STATS: StatItem[] = [
-  { id: 'projects', icon: 'fa-solid fa-code', count: 4, suffix: '', label: 'Featured Projects', code: 'PROJ_COUNT: 04' },
-  { id: 'certifications', icon: 'fa-solid fa-certificate', count: 5, suffix: '', label: 'Verified Credentials', code: 'CERT_VERIFIED: 05' },
-  { id: 'repositories', icon: 'fa-solid fa-code-branch', count: 15, suffix: '+', label: 'Cloud & Code Repos', code: 'GIT_REPOS: 15+' },
-  { id: 'hackathons', icon: 'fa-solid fa-trophy', count: 2, suffix: '', label: 'Hackathons Attended', code: 'HACK_EXP: 02' }
+export const QUICK_METRICS: StatItem[] = [
+  { id: 'projects', icon: 'fa-solid fa-cloud-arrow-up', value: '5', label: 'Technical Projects', code: 'LABS_BUILT: 05' },
+  { id: 'cloud', icon: 'fa-solid fa-server', value: 'Azure', label: 'Primary Cloud Focus', code: 'ENV_PRIMARY: AZURE' },
+  { id: 'credentials', icon: 'fa-solid fa-certificate', value: '8+', label: 'Courses & Simulations', code: 'CERTS_LOG: 08' },
+  { id: 'community', icon: 'fa-solid fa-code-pull-request', value: 'GSSoC 26', label: 'Open Source Contributor', code: 'COMMUNITY: ACTIVE' }
 ];
 
 export const ABOUT_CARDS: AboutCardItem[] = [
   {
-    id: 'identity',
-    icon: 'fa-solid fa-terminal',
-    title: 'Student Identity',
-    subtitle: 'ACADEMIC & SECURITY FOCUS',
-    description: 'BCA student specialized in Cloud Computing & Cybersecurity at Bengaluru. Driven by deep curiosity in cloud isolation, defensive networking, and practical system security.',
-    commandPrompt: 'cat identity.txt'
-  },
-  {
-    id: 'education',
+    id: 'academic',
     icon: 'fa-solid fa-graduation-cap',
-    title: 'Education & Honors',
-    subtitle: 'DEGREE & DIPLOMA',
-    description: 'Pursuing Bachelor of Computer Applications with an Advanced Diploma in Cloud Architecture & Cybersecurity. Grounded in computational fundamentals and practical lab exercises.',
+    title: 'Academic Foundation',
+    subtitle: 'SSMRV COLLEGE, BENGALURU',
+    description:
+      'Pursuing a Bachelor of Computer Applications (BCA) alongside an Advanced Diploma in Cloud Architecture and Cybersecurity. Developing core competencies in computer networking, systems programming, and modern infrastructure operations.',
     items: [
-      'Bachelor of Computer Applications (BCA)',
-      'Advanced Diploma in Cloud Architecture & Cybersecurity'
+      'SSMRV College — BCA Program',
+      'Advanced Diploma in Cloud Architecture & Cybersecurity',
+      'Bengaluru, Karnataka, India'
     ],
-    commandPrompt: 'ls -l /education/credentials'
+    commandPrompt: 'cat /etc/education.conf'
   },
   {
-    id: 'approach',
+    id: 'philosophy',
     icon: 'fa-solid fa-shield-halved',
-    title: 'Hands-on Philosophy',
-    subtitle: 'LABS OVER THEORY',
-    description: 'Belief that real security competence comes from building and testing infrastructure. From deploying locked-down Azure VNets to scripting socket scanners and Linux hardening.',
+    title: 'Hands-on Learning Discipline',
+    subtitle: 'SYSTEMS OVER THEORY',
+    description:
+      'I approach cloud security not through superficial theory, but by provisioning isolated infrastructure, configuring access controls, simulating threats, and writing clear deployment documentation.',
     items: [
-      'Zero-Trust networking mindset',
-      'Defensive automation with Python',
-      'Infrastructure as code exploration'
+      'Least-privilege role assignments and audit trails',
+      'Zero-trust network segregation with custom VNets and NSGs',
+      'Reproducible provisioning using Terraform'
     ],
-    commandPrompt: 'cat security_creed.md'
+    commandPrompt: 'cat /opt/philosophy/creed.md'
   },
   {
-    id: 'location',
-    icon: 'fa-solid fa-server',
-    title: 'Operations Hub',
-    subtitle: 'LOCATION & READINESS',
-    description: 'Stationed in Bengaluru, Karnataka — India’s primary technology capital. Actively seeking cloud security internships and collaborative engineering opportunities.',
-    commandPrompt: 'traceroute host.bengaluru.in'
+    id: 'focus-areas',
+    icon: 'fa-solid fa-network-wired',
+    title: 'Core Technical Pursuits',
+    subtitle: 'IDENTITY & INFRASTRUCTURE',
+    description:
+      'Focused on the intersection of cloud services, Linux administration, and defensive security. Exploring how robust identity architectures protect modern enterprise workloads.',
+    items: [
+      'Microsoft Azure Virtual Networks & Virtual Machines',
+      'Microsoft Entra ID (Azure AD) security groups and RBAC',
+      'Linux user rights, SSH key governance, and Nginx'
+    ],
+    commandPrompt: 'cat /var/log/interests.log'
   }
 ];
 
-export const TECH_GROUPS: TechGroup[] = [
+export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
   {
     id: 'cloud',
     title: 'Cloud Infrastructure',
     groupCode: 'MOD_CLOUD',
     icon: 'fa-solid fa-cloud',
-    description: 'Enterprise cloud networking, virtualization, and identity management.',
-    items: [
-      { name: 'Microsoft Azure', status: 'hands-on', tag: 'Core', details: 'VNets, Subnets, NSG Rules, Azure VMs, Cloud Shell, Blob Storage' },
-      { name: 'Azure Virtual Networks (VNet)', status: 'hands-on', tag: 'Network', details: 'CIDR subnet planning, network isolation, peering' },
-      { name: 'Network Security Groups (NSG)', status: 'hands-on', tag: 'Firewall', details: 'Inbound/outbound rule configuration, port lockdown' },
-      { name: 'Azure Identity & Access (RBAC)', status: 'hands-on', tag: 'IAM', details: 'Role assignments, least privilege governance' },
-      { name: 'AWS Basics', status: 'hands-on', tag: 'Labs', details: 'Foundational EC2, S3 bucket policies, IAM' },
-      { name: 'Terraform', status: 'learning', tag: 'IaC Study', details: 'Exploring declarative infrastructure automation' }
+    description: 'Practical administration and architecture on Microsoft Azure.',
+    skills: [
+      { name: 'Microsoft Azure', context: 'Primary cloud platform' },
+      { name: 'Azure Virtual Machines', context: 'Ubuntu Linux deployment & sizing' },
+      { name: 'Virtual Networks (VNet)', context: 'Subnet segmentation & CIDR design' },
+      { name: 'Azure RBAC', context: 'Role assignments & permission scoping' }
     ]
   },
   {
     id: 'security',
-    title: 'Cybersecurity & Defense',
-    groupCode: 'MOD_SEC',
+    title: 'Identity & Security',
+    groupCode: 'MOD_IAM_SEC',
     icon: 'fa-solid fa-shield-halved',
-    description: 'Security fundamentals, reconnaissance, traffic auditing, and defensive postures.',
-    items: [
-      { name: 'Network Security', status: 'hands-on', tag: 'Core', details: 'TCP/IP protocol stack, packet flow, firewall filtering' },
-      { name: 'Reconnaissance & Port Scanning', status: 'hands-on', tag: 'Defense', details: 'Socket scanning, service banner detection' },
-      { name: 'Identity & Access Management', status: 'hands-on', tag: 'IAM', details: 'Authentication, authorization, SSH key pairs' },
-      { name: 'Hands-on Labs (TryHackMe)', status: 'hands-on', tag: 'Pre-Sec', details: 'Web application security, cryptography basics' },
-      { name: 'Threat Telemetry', status: 'hands-on', tag: 'ThreatLens', details: 'Security log evaluation, threat indicator analysis' },
-      { name: 'CompTIA Security+ Domains', status: 'learning', tag: 'Exam Prep', details: 'Threat analysis, risk mitigation, cryptography' }
-    ]
-  },
-  {
-    id: 'development',
-    title: 'Development & Automation',
-    groupCode: 'MOD_DEV',
-    icon: 'fa-solid fa-code',
-    description: 'Writing software to automate tasks, build backend services, and inspect networks.',
-    items: [
-      { name: 'Python', status: 'hands-on', tag: 'Primary', details: 'Socket programming, automation scripts, data handling' },
-      { name: 'Bash & Shell Scripting', status: 'hands-on', tag: 'Linux', details: 'System automation, cron tasks, log parsing' },
-      { name: 'JavaScript & Node.js', status: 'hands-on', tag: 'Backend', details: 'Express REST APIs, hackathon microservices' },
-      { name: 'SQL', status: 'hands-on', tag: 'Data', details: 'Relational queries, SQLite integration, Oracle SQL' }
+    description: 'Access governance, network perimeter lockdown, and threat analysis.',
+    skills: [
+      { name: 'Microsoft Entra ID (Azure AD)', context: 'Users, groups & enterprise access' },
+      { name: 'Identity & Access Management (IAM)', context: 'Least privilege & role validation' },
+      { name: 'Network Security (NSG)', context: 'Inbound/outbound port filtering' },
+      { name: 'Phishing Awareness', context: 'Social engineering vector identification' },
+      { name: 'Threat Analysis', context: 'URL, domain & payload reconnaissance' }
     ]
   },
   {
     id: 'systems',
-    title: 'Systems & Engineering Tools',
-    groupCode: 'MOD_SYS',
+    title: 'Systems & Administration',
+    groupCode: 'MOD_SYSTEMS',
     icon: 'fa-brands fa-linux',
-    description: 'Operating systems, source control, and engineering environments.',
-    items: [
-      { name: 'Linux (Ubuntu / Debian)', status: 'hands-on', tag: 'OS', details: 'File permissions, systemctl, user administration, networking' },
-      { name: 'Git & GitHub', status: 'hands-on', tag: 'VCS', details: 'Branching, code reviews, open-source workflow' },
-      { name: 'VS Code & Cloud Shell', status: 'hands-on', tag: 'IDE', details: 'Primary coding environment and Azure CLI' },
-      { name: 'SSH & Key Pair Governance', status: 'hands-on', tag: 'Admin', details: 'Public-key authentication, tunneling, remote servers' }
+    description: 'Operating systems, secure remote access, and terminal operations.',
+    skills: [
+      { name: 'Linux', context: 'System administration & configuration' },
+      { name: 'Ubuntu', context: 'Primary server lab distribution' },
+      { name: 'SSH & Key Authentication', context: 'Passwordless cryptographic access' },
+      { name: 'Command-Line Operations', context: 'Bash utilities, cron, and package management' }
+    ]
+  },
+  {
+    id: 'automation',
+    title: 'Automation & Development',
+    groupCode: 'MOD_DEV_IAC',
+    icon: 'fa-solid fa-code',
+    description: 'Infrastructure-as-code and scripting for system automation.',
+    skills: [
+      { name: 'Terraform', context: 'Declarative resource provisioning' },
+      { name: 'Python', context: 'Network sockets & security scripts' },
+      { name: 'JavaScript', context: 'Application logic & scripts' },
+      { name: 'Node.js', context: 'Backend runtimes & API services' },
+      { name: 'Git & GitHub', context: 'Version control & collaboration' }
+    ]
+  },
+  {
+    id: 'web',
+    title: 'Web Technologies',
+    groupCode: 'MOD_WEB_STACK',
+    icon: 'fa-solid fa-globe',
+    description: 'Modern frontend tooling used in project and hackathon applications.',
+    skills: [
+      { name: 'React', context: 'Component-based user interfaces' },
+      { name: 'TypeScript', context: 'Type-safe frontends' },
+      { name: 'Vite', context: 'Fast modern build tooling' },
+      { name: 'Tailwind CSS', context: 'Utility-first styling' },
+      { name: 'Vercel', context: 'Static site & frontend edge deployment' }
     ]
   }
 ];
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: 'azure-infra',
-    title: 'Azure Enterprise Infrastructure',
-    subtitle: 'VNet Architecture & Hardened Linux Web Server',
-    description: 'Designed and deployed an enterprise-grade cloud infrastructure on Microsoft Azure. Created isolated Virtual Networks with private/public subnet separation, configured Network Security Group (NSG) ingress/egress rules, provisioned an Ubuntu Linux server with SSH key authentication, and deployed Nginx for secure web service delivery.',
-    architectureNotes: [
-      'Azure Virtual Network (VNet) with segmented subnets',
-      'NSG perimeter firewall locking down non-essential ports',
-      'Passwordless SSH key pair authentication on Ubuntu VM',
-      'Nginx web server setup with secure reverse proxy headers'
+    id: 'entra-id-rbac',
+    title: 'Microsoft Entra ID & Azure RBAC: Identity and Access Management',
+    subtitle: 'Standalone IAM Lab with Role-Based Access Validation',
+    description:
+      'A hands-on identity and access management laboratory built on Microsoft Azure. Configured test users and security groups in Microsoft Entra ID, deployed Azure RBAC assignments, and enforced least-privilege permissions across different team roles with Terraform automation and step-by-step audit documentation.',
+    keyHighlights: [
+      'Configured test user accounts and security groups in Microsoft Entra ID',
+      'Scoped Azure RBAC roles to validate segregation of duties (SoD)',
+      'Automated provisioning workflows using Terraform infrastructure-as-code',
+      'Created comprehensive documentation verifying least-privilege access rules'
     ],
-    status: 'FEATURED',
-    statusType: 'online',
-    icon: 'fa-solid fa-cloud',
-    tags: ['Azure', 'VNet', 'NSG', 'Ubuntu VM', 'SSH', 'Nginx', 'Linux'],
-    githubUrl: 'https://github.com/Faizankhank-cy/azure-enterprise-infrastructure',
-    highlights: ['Production-style network isolation', 'Zero-trust port restriction']
+    status: 'STANDALONE LAB',
+    isProminent: true,
+    tags: ['Microsoft Entra ID', 'Azure RBAC', 'Terraform', 'IAM', 'Security Governance'],
+    githubUrl: 'https://github.com/Faizankhan-cyber/microsoft-entra-id-azure-rbac-standalone'
+  },
+  {
+    id: 'azure-web-server',
+    title: 'Secure Linux Web Server on Azure',
+    subtitle: 'Azure Enterprise Infrastructure (V1)',
+    description:
+      'The initial release of the Azure Enterprise Infrastructure project. Deployed a hardened Ubuntu Linux virtual machine within a custom Azure Virtual Network (VNet) with isolated subnets, Network Security Groups (NSGs) restricting open ports, passwordless SSH key pair authentication, and an Nginx web server.',
+    keyHighlights: [
+      'Segmented Azure Virtual Network (VNet) with dedicated subnet routing',
+      'Strict Network Security Group (NSG) perimeter firewall rules',
+      'SSH key authentication with password login disabled on Ubuntu VM',
+      'Nginx web server setup with deployment and troubleshooting runbooks'
+    ],
+    status: 'DEPLOYED LAB',
+    isProminent: true,
+    tags: ['Azure VM', 'VNet', 'NSG', 'Ubuntu Linux', 'SSH Keys', 'Nginx'],
+    githubUrl: 'https://github.com/Faizankhan-cyber/azure-enterprise-infrastructure'
   },
   {
     id: 'threatlens',
-    title: 'ThreatLens',
-    subtitle: 'Security Telemetry & Threat Reconnaissance Dashboard',
-    description: 'Security dashboard platform engineered for visual threat intelligence and vulnerability analysis. Provides interactive telemetry tracking, security indicator visualization, and attack surface assessment to help engineers monitor risk metrics and security events in real-time.',
-    architectureNotes: [
-      'Interactive risk indicator cards and alert telemetry feeds',
-      'REST API integration with structured vulnerability data',
-      'Responsive dark cyber-interface for SOC and analyst workflows'
+    title: 'ThreatLens | Digital Threat Detection Platform',
+    subtitle: 'Internal Smart India Hackathon 2026 Participation',
+    description:
+      'A digital threat investigation and reconnaissance platform developed for an internal Smart India Hackathon event at SSMRV College with Team Cloud Sentinals (held on 14 August 2026). Enables users to analyze suspicious URLs, phishing indicators, messages, emails, screenshots, QR codes, and phone numbers.',
+    keyHighlights: [
+      'Built with Team Cloud Sentinals for internal SSMRV College hackathon (14 Aug 2026)',
+      'Analysis interface for URLs, phishing links, QR codes, and suspicious messages',
+      'Modern type-safe frontend built with React, TypeScript, and Vite',
+      'Deployed on Vercel with responsive dark cyber-interface'
     ],
-    status: 'LIVE',
-    statusType: 'online',
-    icon: 'fa-solid fa-shield-halved',
-    tags: ['Python', 'Threat Analysis', 'React', 'REST API', 'Security Telemetry'],
-    githubUrl: 'https://github.com/Faizankhank-cy/ThreatLens',
+    status: 'LIVE DEMO',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vercel', 'Threat Analysis'],
+    githubUrl: 'https://github.com/Faizankhan-cyber/ThreatLens',
     liveUrl: 'https://threatlens-project.vercel.app/',
-    highlights: ['Live interactive demo available', 'Telemetry & vulnerability tracking']
+    eventContext: 'Internal Smart India Hackathon 2026, SSMRV College (Team Cloud Sentinals)'
+  },
+  {
+    id: 'togetherly',
+    title: 'Togetherly | Workforce Intelligence Platform',
+    subtitle: 'Hackathon Project with Team Weird Minds at AMC Engineering College',
+    description:
+      'A workforce intelligence platform engineered during an inter-college hackathon at AMC Engineering College with Team Weird Minds. Features include employee-to-project skill matching, team composition suggestions, skills-gap insights, and workload allocation simulations.',
+    keyHighlights: [
+      'Collaborative hackathon build with Team Weird Minds at AMC Engineering College',
+      'Employee-to-project matching and dynamic skills-gap insights interface',
+      'Workload visualization and scenario simulation components',
+      'Responsive frontend built with React, TypeScript, Vite, and Tailwind CSS'
+    ],
+    status: 'LIVE DEMO',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Hackathon Build'],
+    liveUrl: 'https://togetherly-omega.vercel.app/',
+    eventContext: 'Hackathon at AMC Engineering College (Team Weird Minds)'
   },
   {
     id: 'bountyvault',
-    title: 'BountyVault',
-    subtitle: 'Blockchain Bounty Management Platform',
-    description: 'Decentralized bounty escrow and developer reward platform developed during the AlgoBharat × Algorand Foundation India Hackathon. Served as Backend Lead, designing secure server-side APIs, managing SQLite data persistence, and coordinating Algorand blockchain transaction flows.',
-    architectureNotes: [
-      'Backend architecture with Node.js, Express, and Python',
-      'Algorand blockchain smart contract transaction coordination',
-      'Pera Wallet integration and cryptographic verification'
+    title: 'BountyVault | Decentralized Escrow System',
+    subtitle: 'Algorand Blockchain Hackathon Project',
+    description:
+      'A decentralized bounty escrow project on Algorand exploring smart-contract-based fund locking and release, milestone dispute handling, deadline-based refund logic, and verifiable on-chain transactions.',
+    keyHighlights: [
+      'Explored smart-contract escrow mechanics on the Algorand blockchain',
+      'Designed transactional workflow for automated milestone disbursement',
+      'Integrated dispute and refund conditions for missed delivery deadlines'
     ],
-    status: 'ACTIVE',
-    statusType: 'active',
-    icon: 'fa-solid fa-link',
-    tags: ['Algorand', 'Python', 'Node.js', 'Express', 'SQLite', 'Blockchain'],
-    githubUrl: 'https://github.com/Faizankhan-cyber',
-    highlights: ['National Hackathon project', 'Backend Lead role']
-  },
-  {
-    id: 'port-scanner',
-    title: 'Python Port Scanner',
-    subtitle: 'Multi-Target TCP Reconnaissance Utility',
-    description: 'Custom network reconnaissance tool built in Python using low-level socket programming. Scans target IP addresses for open TCP ports, measures handshake latency, captures service banners, and demonstrates foundational understanding of transport-layer protocols.',
-    architectureNotes: [
-      'Raw socket connections with dynamic timeout handling',
-      'Service banner grabber for HTTP, SSH, and SMTP detection',
-      'Clean CLI output with organized port status tables'
-    ],
-    status: 'ONLINE',
-    statusType: 'online',
-    icon: 'fa-solid fa-network-wired',
-    tags: ['Python', 'Sockets', 'TCP/IP', 'Networking', 'Reconnaissance'],
-    githubUrl: 'https://github.com/Faizankhan-cyber/python-port-scanner',
-    highlights: ['Built from scratch with Python sockets', 'Hands-on network reconnaissance']
+    status: 'HACKATHON BUILD',
+    tags: ['Algorand', 'Blockchain', 'Escrow System', 'Smart Contracts']
   }
 ];
 
-export const CERTIFICATIONS: CertificationItem[] = [
+export const CREDENTIALS: CredentialItem[] = [
   {
-    id: 'cisco-cyber',
-    issuer: 'Cisco Networking Academy',
-    title: 'Introduction to Cybersecurity',
-    status: 'verified',
-    dateOrStatus: 'Earned 2025',
-    icon: 'fa-solid fa-shield-halved',
-    skillsLearned: ['Cybersecurity fundamentals', 'Threat vectors & malware', 'Defense-in-depth']
+    id: 'datacamp-az900',
+    title: 'Understanding Azure Fundamentals (AZ-900)',
+    issuer: 'DataCamp',
+    type: 'Course Certificate',
+    verificationStatus: 'Course Completed',
+    topics: ['Cloud architecture basics', 'Azure compute, storage & network services', 'Pricing and SLAs']
   },
   {
-    id: 'tryhackme',
-    issuer: 'TryHackMe',
-    title: 'Pre Security Path',
-    status: 'verified',
-    dateOrStatus: 'Earned 2026',
-    icon: 'fa-solid fa-terminal',
-    skillsLearned: ['Network fundamentals & OSI', 'Linux CLI mastery', 'Web application security basics']
+    id: 'datacamp-github',
+    title: 'GitHub Foundations',
+    issuer: 'DataCamp',
+    type: 'Course Certificate',
+    verificationStatus: 'Course Completed',
+    topics: ['Git branching & merges', 'GitHub repositories, issues & pull requests', 'Collaboration workflows']
   },
   {
-    id: 'deloitte-sim',
-    issuer: 'Deloitte',
-    title: 'Cyber Job Simulation',
-    status: 'verified',
-    dateOrStatus: 'Completed 2026',
-    icon: 'fa-solid fa-user-shield',
-    skillsLearned: ['Security advisory simulation', 'Cloud incident response', 'Risk assessment reporting']
-  },
-  {
-    id: 'abstream-cloud',
-    issuer: 'Abstream Technologies',
-    title: 'Introduction to Cloud Computing',
-    status: 'verified',
-    dateOrStatus: 'Completed 2025',
-    icon: 'fa-solid fa-cloud',
-    skillsLearned: ['IaaS, PaaS, SaaS paradigms', 'Cloud storage & virtualization', 'Identity governance']
+    id: 'datacamp-python',
+    title: 'Introduction to Python for Developers',
+    issuer: 'DataCamp',
+    type: 'Course Certificate',
+    verificationStatus: 'Course Completed',
+    topics: ['Python control structures', 'Functions, modules & scripts', 'Basic data processing']
   },
   {
     id: 'abstream-linux',
-    issuer: 'Abstream Technologies',
     title: 'Linux System Engineering',
-    status: 'verified',
-    dateOrStatus: 'Completed 2025',
-    icon: 'fa-brands fa-linux',
-    skillsLearned: ['Linux system administration', 'Permissions & ownership', 'Bash scripting & networking']
+    issuer: 'Abstream Technologies',
+    type: 'Course Certificate',
+    verificationStatus: 'Completed & Earned',
+    topics: ['Linux CLI navigation & permissions', 'Service management (systemctl)', 'Networking and shell basics']
+  },
+  {
+    id: 'abstream-dc',
+    title: 'Introduction to Data Centre & Cloud Technologies',
+    issuer: 'Abstream Technologies',
+    type: 'Course Certificate',
+    verificationStatus: 'Completed & Earned',
+    topics: ['Data centre physical infrastructure', 'Virtualization & hypervisors', 'Cloud deployment models']
+  },
+  {
+    id: 'tryhackme-presec',
+    title: 'Pre-Security Certification Path',
+    issuer: 'TryHackMe',
+    type: 'Learning Path',
+    verificationStatus: 'Completed & Earned',
+    topics: ['Network fundamentals (OSI, TCP/IP)', 'Linux CLI fundamentals', 'Web application security basics']
+  },
+  {
+    id: 'forage-deloitte',
+    title: 'Deloitte Australia - Cyber Job Simulation',
+    issuer: 'Forage',
+    type: 'Job Simulation',
+    verificationStatus: 'Simulation Completed',
+    topics: ['Security advisory simulation', 'Cloud incident response review', 'Risk assessment reporting']
+  },
+  {
+    id: 'cisco-intro-cyber',
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco Networking Academy',
+    type: 'Course Certificate',
+    verificationStatus: 'Completed & Earned',
+    topics: ['Cybersecurity fundamentals', 'Common threats, malware & attacks', 'Defensive practices']
+  },
+  {
+    id: 'msft-sc900-prep',
+    title: 'Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)',
+    issuer: 'Microsoft',
+    type: 'Certification',
+    verificationStatus: 'Curriculum Study / Flagged for Review',
+    isFlaggedForReview: true,
+    topics: ['Microsoft Entra ID principles', 'Cloud security capabilities', 'Compliance & governance concepts']
   }
 ];
 
-export const LEARNING_PATHS = [
+export const EXPERIENCE_ITEMS: ExperienceItem[] = [
   {
-    id: 'az-900',
-    title: 'Microsoft Certified: Azure Fundamentals (AZ-900)',
-    provider: 'Microsoft Learn / Active Preparation',
-    status: 'In Progress (Active Study)',
-    progress: 'Exam Preparation',
-    topics: ['Cloud Concepts', 'Azure Architecture & Services', 'Azure Management & Governance']
+    id: 'gssoc-2026',
+    period: 'May 2026 – August 2026',
+    role: 'Open Source Contributor',
+    organization: 'GirlScript Summer of Code (GSSoC) 2026',
+    type: 'Community',
+    description:
+      'Participated as an open source contributor in GirlScript Summer of Code 2026. Collaborated with maintainers and community members, submitting pull requests, fixing documentation and code issues, and practicing Git workflows.',
+    points: [
+      'Contributed to open source repositories during the May–August 2026 program cycle',
+      'Followed project contribution guidelines, branch conventions, and PR review cycles',
+      'Gained real-world collaboration experience using Git and GitHub'
+    ],
+    tags: ['Git', 'GitHub', 'Open Source', 'Collaboration']
   },
   {
-    id: 'sec-plus',
-    title: 'CompTIA Security+ Curriculum',
-    provider: 'Self-Paced / Guided Labs',
-    status: 'In Progress (Curriculum Study)',
-    progress: 'Domain Review',
-    topics: ['Threats, Attacks & Vulnerabilities', 'Architecture & Design', 'Implementation & Operations']
-  },
-  {
-    id: 'terraform-iac',
-    title: 'Infrastructure as Code with Terraform',
-    provider: 'HashiCorp Tutorials & Azure Labs',
-    status: 'In Progress (Exploratory)',
-    progress: 'Foundations',
-    topics: ['HCL Syntax', 'Terraform State Management', 'Azure Resource Group Provisioning']
-  }
-];
-
-export const TIMELINE: JourneyMilestone[] = [
-  {
-    id: 'j-1',
-    year: '2025',
-    category: 'Cloud',
-    title: 'Cloud Computing Foundations',
-    description: 'Completed cloud fundamentals and architecture fundamentals training with Abstream Technologies, exploring virtualization and cloud storage models.',
-    tags: ['Cloud', 'Abstream']
-  },
-  {
-    id: 'j-2',
-    year: '2025',
-    category: 'Security',
-    title: 'Linux System Engineering Mastery',
-    description: 'Deepened hands-on Linux system administration, shell command mastery, file hierarchy permissions, systemctl processes, and networking fundamentals.',
-    tags: ['Linux', 'Ubuntu', 'Bash']
-  },
-  {
-    id: 'j-3',
-    year: '2025',
-    category: 'Security',
-    title: 'Cisco Cybersecurity Certification',
-    description: 'Earned Introduction to Cybersecurity from Cisco, developing strong grounding in attack methodologies, encryption primitives, and threat defense.',
-    tags: ['Cisco', 'Security']
-  },
-  {
-    id: 'j-4',
-    year: '2026',
-    category: 'Security',
-    title: 'TryHackMe Pre Security & Deloitte Simulation',
-    description: 'Completed the hands-on TryHackMe Pre Security learning path and finished the Deloitte Cyber Job Simulation solving simulated enterprise security tasks.',
-    tags: ['TryHackMe', 'Deloitte']
-  },
-  {
-    id: 'j-5',
-    year: '2026',
-    category: 'Hackathon',
-    title: 'BountyVault Hackathon (Backend Lead)',
-    description: 'Collaborated as Backend Lead for BountyVault during AlgoBharat × Algorand Foundation India Hackathon, deploying APIs and blockchain escrow logic.',
-    tags: ['Algorand', 'Python', 'Node.js']
-  },
-  {
-    id: 'j-6',
-    year: '2026',
-    category: 'Cloud',
-    title: 'Azure Infrastructure & ThreatLens Projects',
-    description: 'Designed Azure Enterprise Infrastructure with VNet segregation & NSGs, followed by engineering the ThreatLens security telemetry platform.',
-    tags: ['Azure', 'ThreatLens', 'VNet']
-  },
-  {
-    id: 'j-7',
-    year: 'Present',
-    category: 'Education',
-    title: 'BCA in Cloud Computing & Cybersecurity',
-    description: 'Continuing BCA degree studies with an Advanced Diploma in Cloud Architecture & Cybersecurity while preparing for AZ-900 certification.',
-    tags: ['BCA', 'Bengaluru', 'AZ-900 Prep']
+    id: 'self-directed-study',
+    period: 'September 2025 – Present',
+    role: 'Self-Directed Cloud & Security Lab Practice',
+    organization: 'Independent Lab & Project Work',
+    type: 'Independent',
+    description:
+      'Dedicated learning journey alongside BCA coursework. Setting up cloud laboratories in Microsoft Azure, conducting hands-on Linux administration, practicing defensive reconnaissance, and implementing infrastructure-as-code.',
+    points: [
+      'Built standalone Microsoft Entra ID and Azure RBAC permission matrices',
+      'Configured hardened Ubuntu web servers with custom VNets and NSGs on Azure',
+      'Participated in college and inter-college hackathons (Smart India Hackathon internal event, AMC Hackathon)',
+      'Documented lab procedures, network topologies, and security configurations on GitHub'
+    ],
+    tags: ['Azure', 'Linux', 'Entra ID', 'Terraform', 'Hackathons']
   }
 ];
 
@@ -367,7 +372,7 @@ export const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: 'linkedin',
     name: 'LinkedIn Profile',
-    command: 'open /in/faizan-khan-khaleel',
+    command: 'open https://linkedin.com/in/faizan-khan-khaleel',
     label: 'faizan-khan-khaleel',
     icon: 'fab fa-linkedin',
     href: 'https://www.linkedin.com/in/faizan-khan-khaleel/',
@@ -375,17 +380,8 @@ export const CONTACT_CHANNELS: ContactChannel[] = [
   },
   {
     id: 'github',
-    name: 'GitHub Repository Profile',
-    command: 'git remote -v Faizankhank-cy',
-    label: 'Faizankhank-cy (Main)',
-    icon: 'fab fa-github',
-    href: 'https://github.com/Faizankhank-cy',
-    external: true
-  },
-  {
-    id: 'github-secondary',
-    name: 'GitHub Secondary Profile',
-    command: 'git remote -v Faizankhan-cyber',
+    name: 'GitHub Profile',
+    command: 'open https://github.com/Faizankhan-cyber',
     label: 'Faizankhan-cyber',
     icon: 'fab fa-github',
     href: 'https://github.com/Faizankhan-cyber',

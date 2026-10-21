@@ -8,7 +8,7 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Certifications } from './components/Certifications';
-import { Journey } from './components/Journey';
+import { Experience } from './components/Experience';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { BackToTop } from './components/BackToTop';
@@ -19,12 +19,12 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     console.log(
-      '%c[SYSTEM] root@FaizanKhan initialized successfully.',
-      'color:#00F5A0;font-family:monospace;font-size:14px;font-weight:bold;'
+      '%c[PORTFOLIO] Faizan Khan Khaleel // BCA Cloud Architecture & Cybersecurity',
+      'color:#00F5A0;font-family:monospace;font-size:13px;font-weight:bold;'
     );
     console.log(
-      '%c[TELEMETRY] Cloud Security & Infrastructure Portfolio // Bangalore',
-      'color:#8FA397;font-family:monospace;font-size:12px;'
+      '%c[INSTITUTION] SSMRV College, Bengaluru // Independent Cloud Labs',
+      'color:#8FA397;font-family:monospace;font-size:11px;'
     );
   }, []);
 
@@ -35,35 +35,42 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleExploreProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="portfolio-app">
-      {/* Dynamic Cyber Canvas & Background Glow */}
+      {/* Background Cyber Grid & Subtle Glow */}
       <BackgroundGlow />
       <NetworkCanvas />
 
-      {/* Slim Header Navigation */}
+      {/* Slim Navigation */}
       <Navbar onContactClick={handleContactClick} />
 
       {/* Main Content Sections */}
       <main id="main-content">
         <Hero
           onOpenResume={() => setIsResumeOpen(true)}
-          onContactClick={handleContactClick}
+          onExploreProjects={handleExploreProjects}
         />
         <Dashboard />
         <About />
         <Skills />
         <Projects />
         <Certifications />
-        <Journey />
+        <Experience />
         <Contact onOpenResume={() => setIsResumeOpen(true)} />
       </main>
 
-      {/* Footer and Controls */}
+      {/* Footer */}
       <Footer />
       <BackToTop />
 
-      {/* Interactive Terminal Resume Modal */}
+      {/* Verified Resume Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}

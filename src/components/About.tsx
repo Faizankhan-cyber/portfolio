@@ -1,15 +1,15 @@
 import React from 'react';
-import { ABOUT_CARDS } from '../data/portfolioData';
+import { ABOUT_CARDS, PERSONAL_INFO } from '../data/portfolioData';
 
 export const About: React.FC = () => {
   return (
     <section id="about">
       <div className="container">
         <div className="section-heading">
-          <span className="terminal-meta-tag">SYS_PROFILE // ACADEMIC_DISCIPLINE</span>
+          <span className="terminal-meta-tag">PROFILE // ACADEMIC_DISCIPLINE</span>
           <h2>About Me</h2>
           <p className="subheading">
-            BCA student dedicated to Cloud Architecture, Defensive Networking, and Practical Security Automation.
+            BCA student at {PERSONAL_INFO.college}, Bengaluru, specializing in Cloud Architecture and Cybersecurity. Committed to building practical, documented infrastructure and mastering defensive concepts.
           </p>
         </div>
 
@@ -19,13 +19,13 @@ export const About: React.FC = () => {
               {/* Terminal command bar */}
               <div className="card-header-bar">
                 <span className="card-prompt-title">
-                  <span>root@faizan:~$</span>
+                  <span>faizan@ssmrv:~$</span>
                   <span style={{ color: 'var(--text-bright)' }}>{card.commandPrompt}</span>
                 </span>
-                <span style={{ color: 'var(--muted-dark)' }}>ASCII_UTF8</span>
+                <span style={{ color: 'var(--muted-dark)' }}>STATUS: VERIFIED</span>
               </div>
 
-              {/* Card body */}
+              {/* Card content */}
               <div className="card-content-body">
                 <div className="card-title-group">
                   <div className="card-icon-box">

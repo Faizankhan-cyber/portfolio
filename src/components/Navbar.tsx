@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
   onContactClick?: () => void;
@@ -13,7 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
 
-      const sections = ['home', 'about', 'stack', 'projects', 'certifications', 'journey', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'certifications', 'experience', 'contact'];
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -32,10 +33,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
 
   const navLinks = [
     { href: '#about', label: 'About', id: 'about' },
-    { href: '#stack', label: 'Stack', id: 'stack' },
+    { href: '#skills', label: 'Skills', id: 'skills' },
     { href: '#projects', label: 'Projects', id: 'projects' },
     { href: '#certifications', label: 'Certifications', id: 'certifications' },
-    { href: '#journey', label: 'Journey', id: 'journey' },
+    { href: '#experience', label: 'Experience', id: 'experience' },
     { href: '#contact', label: 'Contact', id: 'contact' },
   ];
 
@@ -64,15 +65,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
   return (
     <header className={isScrolled ? 'scrolled' : ''}>
       <nav className="navbar container" aria-label="Main Navigation">
-        {/* Terminal Logo: root@FaizanKhan */}
+        {/* Terminal-inspired Logo */}
         <a
           href="#home"
           className="terminal-logo"
           onClick={(e) => handleLinkClick(e, '#home')}
-          aria-label="root@FaizanKhan Home"
+          aria-label={`${PERSONAL_INFO.terminalLogo} Home`}
         >
           <span className="logo-prompt">root@</span>
-          <span className="logo-host">FaizanKhan</span>
+          <span className="logo-host">faizan</span>
           <span style={{ color: 'var(--primary)', marginLeft: '2px' }}>:~#</span>
         </a>
 
@@ -90,8 +91,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
             </li>
           ))}
 
-          {/* Mobile version of Execute_Contact() button */}
-          <li className="mobile-only-item" style={{ marginTop: '10px' }}>
+          {/* Mobile contact button */}
+          <li className="mobile-only-item" style={{ marginTop: '12px' }}>
             <button
               type="button"
               className="btn-execute-contact"
@@ -99,20 +100,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
               style={{ display: isMenuOpen ? 'inline-flex' : 'none', width: '100%', justifyContent: 'center' }}
             >
               <i className="fa-solid fa-terminal" />
-              <span>Execute_Contact()</span>
+              <span>Contact()</span>
             </button>
           </li>
         </ul>
 
-        {/* Prominent Execute_Contact() button in desktop navbar */}
+        {/* Desktop Contact CTA */}
         <button
           type="button"
           className="btn-execute-contact"
           onClick={handleExecuteContact}
-          aria-label="Execute Contact Command"
+          aria-label="Scroll to contact section"
         >
           <i className="fa-solid fa-terminal" />
-          <span>Execute_Contact()</span>
+          <span>Contact()</span>
         </button>
 
         {/* Mobile menu toggle */}

@@ -1,8 +1,7 @@
 export interface StatItem {
   id: string;
   icon: string;
-  count: number;
-  suffix: string;
+  value: string;
   label: string;
   code: string;
 }
@@ -17,55 +16,53 @@ export interface AboutCardItem {
   commandPrompt?: string;
 }
 
-export interface TechItem {
+export interface SkillItem {
   name: string;
-  status: 'hands-on' | 'learning';
-  tag?: string;
-  details?: string;
+  context?: string;
 }
 
-export interface TechGroup {
+export interface SkillCategoryGroup {
   id: string;
   title: string;
   groupCode: string;
   icon: string;
   description: string;
-  items: TechItem[];
+  skills: SkillItem[];
 }
 
 export interface ProjectItem {
   id: string;
   title: string;
-  subtitle?: string;
+  subtitle: string;
   description: string;
-  architectureNotes?: string[];
-  status: 'ONLINE' | 'ACTIVE' | 'FEATURED' | 'LIVE';
-  statusType: 'online' | 'active' | 'building';
-  icon: string;
+  keyHighlights: string[];
+  status: 'DEPLOYED LAB' | 'HACKATHON BUILD' | 'LIVE DEMO' | 'STANDALONE LAB';
+  isProminent?: boolean;
   tags: string[];
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
-  highlights?: string[];
+  eventContext?: string;
 }
 
-export interface CertificationItem {
+export interface CredentialItem {
   id: string;
   title: string;
   issuer: string;
-  status: 'verified' | 'in-progress';
-  dateOrStatus: string;
-  icon: string;
-  credentialUrl?: string;
-  skillsLearned?: string[];
+  type: 'Course Certificate' | 'Learning Path' | 'Job Simulation' | 'Certification';
+  verificationStatus: 'Completed & Earned' | 'Course Completed' | 'Simulation Completed' | 'Curriculum Study / Flagged for Review';
+  isFlaggedForReview?: boolean;
+  topics?: string[];
 }
 
-export interface JourneyMilestone {
+export interface ExperienceItem {
   id: string;
-  year: string;
-  title: string;
-  category: 'Cloud' | 'Security' | 'Education' | 'Hackathon';
+  period: string;
+  role: string;
+  organization: string;
+  type: 'Community' | 'Independent';
   description: string;
-  tags?: string[];
+  points: string[];
+  tags: string[];
 }
 
 export interface ContactChannel {

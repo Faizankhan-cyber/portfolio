@@ -13,11 +13,11 @@ export const Footer: React.FC = () => {
             OPERATIONAL_ENV: <span className="status-indicator">ONLINE</span>
           </span>
           <span style={{ color: 'var(--muted-dark)', margin: '0 8px' }}>|</span>
-          <span style={{ color: 'var(--muted)' }}>HOST: BENGALURU_IN</span>
+          <span style={{ color: 'var(--muted)' }}>SSMRV_COLLEGE // BENGALURU</span>
         </div>
 
         <div className="footer-copyright">
-          <span>&copy; {currentYear} {PERSONAL_INFO.name}. Engineering Portfolio.</span>
+          <span>&copy; {currentYear} {PERSONAL_INFO.name}. Cloud &amp; Cybersecurity Portfolio.</span>
         </div>
       </div>
     </footer>
