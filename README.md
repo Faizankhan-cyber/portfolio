@@ -1,113 +1,96 @@
-# 🛡️ Cybersecurity Portfolio
+# 🛡️ Faizan Khan — Cloud Security Portfolio (React)
 
-A modern, responsive portfolio website showcasing my **projects, certifications, technical skills, and learning journey** in Cloud Computing and Cybersecurity.
-
-## 🌐 Live Website
-
-**[faizankhank.vercel.app](https://faizankhank.vercel.app/)**
+A modern, high-performance portfolio website built with **React, Vite, and TypeScript**, showcasing projects, certifications, technical skills, and career milestones in Cloud Computing and Cybersecurity.
 
 ---
 
 ## 📌 About
 
-This is my personal portfolio website as a **BCA student focused on Cloud Computing and Cybersecurity**.
+This is the official portfolio for **Faizan Khan**, a BCA student specializing in **Cloud Computing & Cybersecurity** based in Bengaluru, Karnataka.
 
-The portfolio highlights my hands-on projects, technical skills, certifications, and progress toward a career in **Cloud Security**.
-
----
-
-## 🚀 Features
-
-* Responsive and mobile-friendly design
-* Cybersecurity-inspired interface
-* Interactive animations
-* Project showcase
-* Certifications section
-* Technical skills section
-* Career and learning timeline
-* Contact section
-* Smooth scrolling navigation
+The application features a cybersecurity operations dashboard theme with interactive particle physics, real-time counters, terminal-style skill matrices, 3D tilt project cards, and a learning timeline.
 
 ---
 
-## 📂 Featured Projects
+## 🚀 Features & Architecture
 
-### ☁️ Azure Enterprise Infrastructure
-
-A hands-on Azure infrastructure project focused on deploying and securing a Linux web server in the cloud.
-
-**Tech:** Azure • VNet • Subnet • NSG • Ubuntu VM • SSH • Nginx
-
----
-
-### 🔐 BountyVault
-
-A decentralized bounty escrow platform built on the **Algorand blockchain** during the AlgoBharat × Algorand Foundation India Hackathon.
-
-**Role:** Backend Lead
-
-**Tech:** Algorand • AlgoKit • Python • Node.js • Express • SQLite • Pera Wallet
+- **React 19 & TypeScript**: Fully modular, typed component hierarchy with clean state management.
+- **Cyber Network Particles**: Canvas-based particle animation rendering dynamic node connections.
+- **Interactive Security Dashboard**: Real-time animated counters for projects, certifications, repositories, and hackathons.
+- **Terminal Skill Matrix**: Linux terminal-styled skill containers with badge hover effects.
+- **3D Perspective Tilt**: Interactive mouse tilt on featured project cards.
+- **Career Timeline**: Chronological learning milestones from cloud fundamentals to blockchain hackathons.
+- **Responsive Navigation**: Sticky frosted glass navbar with active section highlight and mobile drawer.
+- **System Status Indicator**: Live operations badge and quick-copy contact channels.
 
 ---
 
-## 📜 Certifications
+## 🛠️ Tech Stack
 
-* Cisco – Introduction to Cybersecurity
-* TryHackMe – Pre Security
-* Deloitte – Cyber Job Simulation
-* Abstream Technologies – Introduction to Cloud Computing
-* Abstream Technologies – Linux System Engineering
-
----
-
-## 🛠️ Built With
-
-* HTML5
-* CSS3
-* JavaScript
-* Font Awesome
-* Google Fonts
+- **Framework**: React 19 + TypeScript
+- **Bundler**: Vite
+- **Styling**: Cyber Theme CSS3 (Custom properties, Glassmorphism, Neon glow)
+- **Icons**: Font Awesome 6 + Lucide React
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-portfolio/
-├── index.html
-├── style.css
-├── script.js
-├── resume.pdf
-├── images/
-└── README.md
+├── index.html              # HTML entry point with fonts & metadata
+├── metadata.json           # AI Studio applet configuration
+├── package.json            # Dependencies and scripts
+├── src/
+│   ├── App.tsx             # Root layout and section composition
+│   ├── main.tsx            # Vite React entry point
+│   ├── types.ts            # Data models and interfaces
+│   ├── style.css           # Full cybersecurity theme stylesheet
+│   ├── components/
+│   │   ├── About.tsx           # Profile cards
+│   │   ├── BackToTop.tsx       # Smooth scroll to top button
+│   │   ├── BackgroundGlow.tsx  # Parallax mouse glow
+│   │   ├── Certifications.tsx  # Verified credentials
+│   │   ├── Contact.tsx         # Contact cards & clipboard copy
+│   │   ├── Dashboard.tsx       # System status & animated stats
+│   │   ├── Footer.tsx          # System status footer
+│   │   ├── Hero.tsx            # Hero with typewriter effect
+│   │   ├── Journey.tsx         # Career journey timeline
+│   │   ├── Navbar.tsx          # Sticky responsive header
+│   │   ├── NetworkCanvas.tsx   # Canvas network particle mesh
+│   │   ├── Projects.tsx        # 3D tilt project showcase
+│   │   └── Skills.tsx          # Terminal-style technical stack
+│   └── data/
+│       └── portfolioData.ts    # Centralized portfolio data
+├── tsconfig.json           # TypeScript configuration
+└── vite.config.ts          # Vite build configuration
 ```
 
 ---
 
-## 🚀 Run Locally
+## 💻 Development & Build
 
-Clone the repository:
-
+Install dependencies:
 ```bash
-git clone https://github.com/Faizankhan-cyber/YOUR-REPOSITORY.git
+npm install
 ```
 
-Open `index.html` in your browser.
+Start the local development server:
+```bash
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
 
 ---
 
-## 👨‍💻 About Me
+## 👨‍💻 Connect
 
-**Faizan Khan**
-
-BCA Student focused on **Cloud Computing & Cybersecurity**.
-
-Currently building my skills through **cloud projects, cybersecurity labs, certifications, and hackathons**.
-
-### 🔗 Connect
-
-* **GitHub:** https://github.com/Faizankhan-cyber
-* **LinkedIn:** https://linkedin.com/in/faizankhan-khaleel/
+- **GitHub:** [Faizankhan-cyber](https://github.com/Faizankhan-cyber)
+- **LinkedIn:** [Faizan Khan](https://linkedin.com/in/faizan-khan-khaleel)
+- **Email:** faizankhanex@gmail.com
 
 ---
 

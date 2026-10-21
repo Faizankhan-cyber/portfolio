@@ -1,0 +1,9 @@
+{
+  "name": "Faizan Khan | Cloud Security Portfolio",
+  "description": "Portfolio of Faizan Khan - Cloud Computing & Cybersecurity Student featuring security dashboard, projects, certifications, technical skills, and career timeline.",
+  "prompt": "Rewrite imported portfolio app to React",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
