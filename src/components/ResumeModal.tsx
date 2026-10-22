@@ -51,38 +51,42 @@ TECHNICAL COMPETENCIES
 • Web Development: React, TypeScript, Vite, Tailwind CSS, Vercel
 
 FEATURED TECHNICAL PROJECTS
-1. Microsoft Entra ID & Azure RBAC: Identity and Access Management
+1. Microsoft Entra ID & Azure RBAC: Identity and Access Management [Azure Projects]
    - Standalone IAM lab configuring test users, security groups, and least-privilege Azure RBAC scoping with Terraform.
+   - Built after completing Microsoft SC-900 exam.
    - Repo: https://github.com/Faizankhan-cyber/microsoft-entra-id-azure-rbac-standalone
 
-2. Secure Linux Web Server on Azure (Azure Enterprise Infrastructure V1)
-   - Provisioned hardened Ubuntu VM inside custom Azure VNet with NSG firewall rules, SSH keys, and Nginx.
-   - Repo: https://github.com/Faizankhan-cyber/azure-enterprise-infrastructure
+2. Secure Linux Web Server on Azure [Azure Projects]
+   - Hardened Ubuntu VM inside custom Azure VNet with NSG firewall rules, SSH keys, and Nginx.
+   - Built after completing Microsoft AZ-900 exam to apply Azure fundamentals.
+   - Repo: https://github.com/Faizankhan-cyber/secure-linux-web-server-azure
 
-3. Togetherly | Workforce Intelligence Platform
-   - Hackathon project with Team Weird Minds at AMC Engineering College for employee-to-project skill matching.
-   - Live: https://togetherly-omega.vercel.app/
+3. Togetherly | Workforce Intelligence Platform [FEATURED HACKATHON PROJECT]
+   - Workforce intelligence platform developed during hackathon at AMC Engineering College with Team Weird Minds.
+   - Live: https://togetherly-omega.vercel.app/ | Repo: https://github.com/Faizankhan-cyber/togetherly-workforce
 
-4. ThreatLens | Digital Threat Detection Platform
+4. ThreatLens | Digital Threat Detection Platform [Hackathon Projects]
    - Digital threat investigation platform built for internal Smart India Hackathon at SSMRV College with Team Cloud Sentinals.
    - Live: https://threatlens-project.vercel.app/ | Repo: https://github.com/Faizankhan-cyber/ThreatLens
 
-5. BountyVault | Decentralized Escrow System
+5. BountyVault | Decentralized Escrow System [Hackathon Projects]
    - Blockchain-based escrow project on Algorand for smart-contract fund locking, release, and refund conditions.
+   - Live: https://bountyvault-project.vercel.app/ | Repo: https://github.com/Faizankhan-cyber/bountyvault
 
 EXPERIENCE & COMMUNITY
 • Open Source Contributor — GirlScript Summer of Code (GSSoC) 2026 (May 2026 – Aug 2026)
 • Self-Directed Cloud & Security Lab Practice (Sept 2025 – Present)
 
 COMPLETED CREDENTIALS & LEARNING ACHIEVEMENTS
+• Microsoft: Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900) [Earned Vendor Certification]
 • DataCamp: Understanding Azure Fundamentals (AZ-900)
 • DataCamp: GitHub Foundations
 • DataCamp: Introduction to Python for Developers
 • Abstream Technologies: Linux System Engineering
 • Abstream Technologies: Introduction to Data Centre & Cloud Technologies
+• Cisco Networking Academy: Introduction to Cybersecurity
 • TryHackMe: Pre-Security Certification Path
 • Forage: Deloitte Australia - Cyber Job Simulation
-• Cisco Networking Academy: Introduction to Cybersecurity
     `.trim();
 
     if (navigator?.clipboard?.writeText) {
@@ -151,18 +155,30 @@ COMPLETED CREDENTIALS & LEARNING ACHIEVEMENTS
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {PROJECTS.map((proj) => (
               <div key={proj.id} style={{ background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '6px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
-                  <strong style={{ color: 'var(--primary)' }}>{proj.title}</strong>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>[{proj.tags.slice(0, 3).join(', ')}]</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px' }}>
+                  <strong style={{ color: 'var(--primary)' }}>
+                    {proj.title}
+                    {proj.isFeatured && (
+                      <span style={{ marginLeft: '8px', fontSize: '0.7rem', color: '#050807', background: 'var(--primary)', padding: '2px 6px', borderRadius: '3px' }}>
+                        FEATURED
+                      </span>
+                    )}
+                  </strong>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>[{proj.category === 'azure' ? 'Azure' : 'Hackathon'} &bull; {proj.tags.slice(0, 3).join(', ')}]</span>
                 </div>
                 <p style={{ fontSize: '0.84rem', marginTop: '4px', color: '#CBD5E1' }}>{proj.description}</p>
-                {proj.githubUrl && (
-                  <div style={{ marginTop: '6px', fontSize: '0.78rem' }}>
+                <div style={{ marginTop: '6px', fontSize: '0.78rem', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+                  {proj.githubUrl && (
                     <a href={proj.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>
-                      {proj.githubUrl}
+                      GitHub: {proj.githubUrl.replace('https://github.com/', '')}
                     </a>
-                  </div>
-                )}
+                  )}
+                  {proj.liveUrl && (
+                    <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary-light)', textDecoration: 'underline' }}>
+                      Live Demo: {proj.liveUrl.replace('https://', '')}
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>

@@ -32,12 +32,15 @@ export interface SkillCategoryGroup {
 
 export interface ProjectItem {
   id: string;
+  category: 'azure' | 'hackathon';
   title: string;
   subtitle: string;
   description: string;
   keyHighlights: string[];
   status: 'DEPLOYED LAB' | 'HACKATHON BUILD' | 'LIVE DEMO' | 'STANDALONE LAB';
   isProminent?: boolean;
+  isFeatured?: boolean;
+  contextNote?: string;
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -48,10 +51,14 @@ export interface CredentialItem {
   id: string;
   title: string;
   issuer: string;
+  examCode?: string;
   type: 'Course Certificate' | 'Learning Path' | 'Job Simulation' | 'Certification';
   verificationStatus: 'Completed & Earned' | 'Course Completed' | 'Simulation Completed' | 'Curriculum Study / Flagged for Review';
+  isFeatured?: boolean;
   isFlaggedForReview?: boolean;
   topics?: string[];
+  credentialUrl?: string;
+  credentialId?: string;
 }
 
 export interface ExperienceItem {

@@ -35,7 +35,7 @@ export const PERSONAL_INFO = {
     title: 'Current Technical Focus',
     target: 'Azure Infrastructure & IAM Hardening',
     labInProgress: 'Multi-Role RBAC & Terraform Automation',
-    studyTrack: 'Security, Compliance & Identity (SC-900 / AZ-900)',
+    studyTrack: 'Security, Compliance & Identity (Microsoft SC-900 Certified)',
     operatingSystem: 'Ubuntu Linux 24.04 LTS (Primary Lab OS)'
   }
 };
@@ -43,7 +43,7 @@ export const PERSONAL_INFO = {
 export const QUICK_METRICS: StatItem[] = [
   { id: 'projects', icon: 'fa-solid fa-cloud-arrow-up', value: '5', label: 'Technical Projects', code: 'LABS_BUILT: 05' },
   { id: 'cloud', icon: 'fa-solid fa-server', value: 'Azure', label: 'Primary Cloud Focus', code: 'ENV_PRIMARY: AZURE' },
-  { id: 'credentials', icon: 'fa-solid fa-certificate', value: '8+', label: 'Courses & Simulations', code: 'CERTS_LOG: 08' },
+  { id: 'credentials', icon: 'fa-solid fa-certificate', value: '9', label: 'Certifications & Courses', code: 'CERTS_LOG: 09' },
   { id: 'community', icon: 'fa-solid fa-code-pull-request', value: 'GSSoC 26', label: 'Open Source Contributor', code: 'COMMUNITY: ACTIVE' }
 ];
 
@@ -163,93 +163,148 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
   }
 ];
 
+export interface ProjectCategory {
+  id: 'azure' | 'hackathon';
+  title: string;
+  badge: string;
+  subtitle: string;
+  icon: string;
+}
+
+export const PROJECT_CATEGORIES: ProjectCategory[] = [
+  {
+    id: 'azure',
+    title: 'Azure Projects',
+    badge: 'AZURE_CLOUD_LABS',
+    subtitle: 'Cloud infrastructure, identity management, and access security built through hands-on Azure labs.',
+    icon: 'fa-solid fa-cloud'
+  },
+  {
+    id: 'hackathon',
+    title: 'All Hackathon Projects',
+    badge: 'HACKATHON_BUILDS',
+    subtitle: 'Collaborative projects exploring cybersecurity, workforce intelligence, and blockchain applications.',
+    icon: 'fa-solid fa-trophy'
+  }
+];
+
 export const PROJECTS: ProjectItem[] = [
   {
     id: 'entra-id-rbac',
+    category: 'azure',
     title: 'Microsoft Entra ID & Azure RBAC: Identity and Access Management',
     subtitle: 'Standalone IAM Lab with Role-Based Access Validation',
     description:
-      'A hands-on identity and access management laboratory built on Microsoft Azure. Configured test users and security groups in Microsoft Entra ID, deployed Azure RBAC assignments, and enforced least-privilege permissions across different team roles with Terraform automation and step-by-step audit documentation.',
+      'A hands-on Microsoft Azure identity and access management lab involving test users, security groups, Azure Role-Based Access Control (RBAC), least-privilege permissions, role validation, Terraform, and documentation.',
+    contextNote:
+      'Built after completing the Microsoft SC-900 exam to apply security, compliance, identity, and access-management concepts in a practical lab.',
     keyHighlights: [
       'Configured test user accounts and security groups in Microsoft Entra ID',
-      'Scoped Azure RBAC roles to validate segregation of duties (SoD)',
-      'Automated provisioning workflows using Terraform infrastructure-as-code',
-      'Created comprehensive documentation verifying least-privilege access rules'
+      'Scoped Azure RBAC roles with least-privilege permissions and audit validation',
+      'Automated IAM provisioning workflows using declarative Terraform configuration',
+      'Produced complete runbook documentation for role validation and segregation of duties'
     ],
     status: 'STANDALONE LAB',
     isProminent: true,
-    tags: ['Microsoft Entra ID', 'Azure RBAC', 'Terraform', 'IAM', 'Security Governance'],
+    tags: ['Microsoft Entra ID', 'Microsoft Azure', 'Azure RBAC', 'Terraform', 'Identity and Access Management'],
     githubUrl: 'https://github.com/Faizankhan-cyber/microsoft-entra-id-azure-rbac-standalone'
   },
   {
     id: 'azure-web-server',
+    category: 'azure',
     title: 'Secure Linux Web Server on Azure',
     subtitle: 'Azure Enterprise Infrastructure (V1)',
     description:
-      'The initial release of the Azure Enterprise Infrastructure project. Deployed a hardened Ubuntu Linux virtual machine within a custom Azure Virtual Network (VNet) with isolated subnets, Network Security Groups (NSGs) restricting open ports, passwordless SSH key pair authentication, and an Nginx web server.',
+      'The first version of my Azure Enterprise Infrastructure project. It includes an Ubuntu Linux virtual machine, Azure Virtual Network and subnet configuration, Network Security Groups, SSH key authentication, Nginx, and deployment documentation.',
+    contextNote:
+      'Built after completing the Microsoft AZ-900 exam to apply Azure fundamentals through a Linux web server and cloud infrastructure project.',
     keyHighlights: [
-      'Segmented Azure Virtual Network (VNet) with dedicated subnet routing',
-      'Strict Network Security Group (NSG) perimeter firewall rules',
-      'SSH key authentication with password login disabled on Ubuntu VM',
-      'Nginx web server setup with deployment and troubleshooting runbooks'
+      'Configured custom Azure Virtual Network (VNet) with isolated subnet segmentation',
+      'Implemented strict Network Security Group (NSG) perimeter firewall rules',
+      'Hardened Ubuntu Linux VM with passwordless SSH key pair authentication',
+      'Configured Nginx web server with production-grade deployment documentation'
     ],
     status: 'DEPLOYED LAB',
-    isProminent: true,
-    tags: ['Azure VM', 'VNet', 'NSG', 'Ubuntu Linux', 'SSH Keys', 'Nginx'],
-    githubUrl: 'https://github.com/Faizankhan-cyber/azure-enterprise-infrastructure'
+    isProminent: false,
+    tags: ['Microsoft Azure', 'Azure Virtual Machines', 'Virtual Network (VNet)', 'Network Security Groups (NSGs)', 'Ubuntu Linux', 'SSH', 'Nginx'],
+    githubUrl: 'https://github.com/Faizankhan-cyber/secure-linux-web-server-azure'
   },
   {
     id: 'threatlens',
+    category: 'hackathon',
     title: 'ThreatLens | Digital Threat Detection Platform',
-    subtitle: 'Internal Smart India Hackathon 2026 Participation',
+    subtitle: 'Internal Smart India Hackathon Event - SSMRV College',
     description:
-      'A digital threat investigation and reconnaissance platform developed for an internal Smart India Hackathon event at SSMRV College with Team Cloud Sentinals (held on 14 August 2026). Enables users to analyze suspicious URLs, phishing indicators, messages, emails, screenshots, QR codes, and phone numbers.',
+      'A digital threat investigation platform developed for the internal Smart India Hackathon event at SSMRV College with Team Cloud Sentinals. The platform helps users investigate suspicious URLs, phishing links, messages, emails, screenshots, QR codes, and phone numbers.',
     keyHighlights: [
-      'Built with Team Cloud Sentinals for internal SSMRV College hackathon (14 Aug 2026)',
-      'Analysis interface for URLs, phishing links, QR codes, and suspicious messages',
-      'Modern type-safe frontend built with React, TypeScript, and Vite',
+      'Developed with Team Cloud Sentinals for the internal Smart India Hackathon event at SSMRV College',
+      'Multi-vector investigation interface analyzing URLs, phishing links, messages, emails, screenshots, QR codes, and phone numbers',
+      'Modern type-safe frontend built with React, TypeScript, Vite, and Tailwind CSS',
       'Deployed on Vercel with responsive dark cyber-interface'
     ],
     status: 'LIVE DEMO',
-    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vercel', 'Threat Analysis'],
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vercel'],
     githubUrl: 'https://github.com/Faizankhan-cyber/ThreatLens',
     liveUrl: 'https://threatlens-project.vercel.app/',
-    eventContext: 'Internal Smart India Hackathon 2026, SSMRV College (Team Cloud Sentinals)'
+    eventContext: 'Internal Smart India Hackathon Event, SSMRV College (Team Cloud Sentinals)'
   },
   {
     id: 'togetherly',
+    category: 'hackathon',
+    isFeatured: true,
     title: 'Togetherly | Workforce Intelligence Platform',
     subtitle: 'Hackathon Project with Team Weird Minds at AMC Engineering College',
     description:
-      'A workforce intelligence platform engineered during an inter-college hackathon at AMC Engineering College with Team Weird Minds. Features include employee-to-project skill matching, team composition suggestions, skills-gap insights, and workload allocation simulations.',
+      'Togetherly is a workforce intelligence platform developed during a hackathon at AMC Engineering College with Team Weird Minds. Its features include employee-to-project matching, team building, skills-gap analysis, workload and allocation analysis, and workforce scenario simulation.',
     keyHighlights: [
       'Collaborative hackathon build with Team Weird Minds at AMC Engineering College',
       'Employee-to-project matching and dynamic skills-gap insights interface',
-      'Workload visualization and scenario simulation components',
+      'Workload and allocation analysis with workforce scenario simulation',
       'Responsive frontend built with React, TypeScript, Vite, and Tailwind CSS'
     ],
     status: 'LIVE DEMO',
-    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Hackathon Build'],
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/Faizankhan-cyber/togetherly-workforce',
     liveUrl: 'https://togetherly-omega.vercel.app/',
     eventContext: 'Hackathon at AMC Engineering College (Team Weird Minds)'
   },
   {
     id: 'bountyvault',
+    category: 'hackathon',
+    isFeatured: false,
     title: 'BountyVault | Decentralized Escrow System',
-    subtitle: 'Algorand Blockchain Hackathon Project',
+    subtitle: 'Algorand Blockchain Decentralized Escrow',
     description:
-      'A decentralized bounty escrow project on Algorand exploring smart-contract-based fund locking and release, milestone dispute handling, deadline-based refund logic, and verifiable on-chain transactions.',
+      'A decentralized escrow application built on Algorand. The project explores smart-contract-based fund locking and release, transparent dispute resolution, refunds for missed deadlines, and verifiable on-chain transactions.',
     keyHighlights: [
       'Explored smart-contract escrow mechanics on the Algorand blockchain',
-      'Designed transactional workflow for automated milestone disbursement',
-      'Integrated dispute and refund conditions for missed delivery deadlines'
+      'Designed transactional workflow for automated milestone fund locking and release',
+      'Integrated transparent dispute resolution and refunds for missed deadlines'
     ],
-    status: 'HACKATHON BUILD',
-    tags: ['Algorand', 'Blockchain', 'Escrow System', 'Smart Contracts']
+    status: 'LIVE DEMO',
+    tags: ['Algorand', 'Blockchain', 'Smart Contracts', 'Decentralized Escrow'],
+    githubUrl: 'https://github.com/Faizankhan-cyber/bountyvault',
+    liveUrl: 'https://bountyvault-project.vercel.app/'
   }
 ];
 
 export const CREDENTIALS: CredentialItem[] = [
+  {
+    id: 'msft-sc900',
+    title: 'Microsoft Certified: Security, Compliance, and Identity Fundamentals',
+    examCode: 'SC-900',
+    issuer: 'Microsoft',
+    type: 'Certification',
+    verificationStatus: 'Completed & Earned',
+    isFeatured: true,
+    isFlaggedForReview: false,
+    topics: [
+      'Microsoft Entra ID & RBAC governance',
+      'Security, compliance & identity fundamentals',
+      'Threat protection & zero-trust architecture',
+      'Information protection & compliance management'
+    ]
+  },
   {
     id: 'datacamp-az900',
     title: 'Understanding Azure Fundamentals (AZ-900)',
@@ -291,6 +346,14 @@ export const CREDENTIALS: CredentialItem[] = [
     topics: ['Data centre physical infrastructure', 'Virtualization & hypervisors', 'Cloud deployment models']
   },
   {
+    id: 'cisco-intro-cyber',
+    title: 'Introduction to Cybersecurity',
+    issuer: 'Cisco Networking Academy',
+    type: 'Course Certificate',
+    verificationStatus: 'Completed & Earned',
+    topics: ['Cybersecurity fundamentals', 'Common threats, malware & attacks', 'Defensive practices']
+  },
+  {
     id: 'tryhackme-presec',
     title: 'Pre-Security Certification Path',
     issuer: 'TryHackMe',
@@ -305,23 +368,6 @@ export const CREDENTIALS: CredentialItem[] = [
     type: 'Job Simulation',
     verificationStatus: 'Simulation Completed',
     topics: ['Security advisory simulation', 'Cloud incident response review', 'Risk assessment reporting']
-  },
-  {
-    id: 'cisco-intro-cyber',
-    title: 'Introduction to Cybersecurity',
-    issuer: 'Cisco Networking Academy',
-    type: 'Course Certificate',
-    verificationStatus: 'Completed & Earned',
-    topics: ['Cybersecurity fundamentals', 'Common threats, malware & attacks', 'Defensive practices']
-  },
-  {
-    id: 'msft-sc900-prep',
-    title: 'Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)',
-    issuer: 'Microsoft',
-    type: 'Certification',
-    verificationStatus: 'Curriculum Study / Flagged for Review',
-    isFlaggedForReview: true,
-    topics: ['Microsoft Entra ID principles', 'Cloud security capabilities', 'Compliance & governance concepts']
   }
 ];
 
