@@ -108,17 +108,33 @@ export const Certifications: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Applied in Projects Link */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', paddingTop: '6px' }}>
-                    <a
-                      href="#category-azure"
-                      onClick={handleScrollToAzure}
-                      className="featured-cert-applied-link"
-                      aria-label="View how SC-900 concepts were practically applied in Azure RBAC project"
-                    >
-                      <i className="fa-solid fa-flask-vial" />
-                      <span>Applied in Azure Lab: Microsoft Entra ID &amp; RBAC Project &rarr;</span>
-                    </a>
+                  {/* Actions & Verification Row */}
+                  <div className="featured-cert-footer">
+                    <div className="featured-cert-actions">
+                      {featuredCert.credentialUrl && (
+                        <a
+                          href={featuredCert.credentialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="featured-cert-verify-btn"
+                          aria-label={`View official ${featuredCert.issuer} ${featuredCert.examCode ?? ''} credential`}
+                        >
+                          <i className="fa-solid fa-certificate" aria-hidden="true" />
+                          <span>Verify Official Credential</span>
+                          <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />
+                        </a>
+                      )}
+
+                      <a
+                        href="#category-azure"
+                        onClick={handleScrollToAzure}
+                        className="featured-cert-applied-link"
+                        aria-label="View how SC-900 concepts were practically applied in Azure RBAC project"
+                      >
+                        <i className="fa-solid fa-flask-vial" aria-hidden="true" />
+                        <span>Applied in Azure Lab: Microsoft Entra ID &amp; RBAC Project &rarr;</span>
+                      </a>
+                    </div>
 
                     <span style={{ fontFamily: 'var(--mono)', fontSize: '0.76rem', color: 'var(--muted)' }}>
                       Credential Verified &bull; Microsoft Security &amp; Identity

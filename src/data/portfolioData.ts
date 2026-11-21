@@ -33,15 +33,15 @@ export const PERSONAL_INFO = {
   ],
   currentFocus: {
     title: 'Current Technical Focus',
-    target: 'Azure Infrastructure & IAM Hardening',
-    labInProgress: 'Multi-Role RBAC & Terraform Automation',
-    studyTrack: 'Security, Compliance & Identity (Microsoft SC-900 Certified)',
+    target: 'Togetherly Azure Platform (V3 Planning)',
+    labInProgress: 'Azure Bicep IaC Rebuild & OIDC Automation',
+    studyTrack: 'AZ-104 Cloud Administration (SC-900 Certified)',
     operatingSystem: 'Ubuntu Linux 24.04 LTS (Primary Lab OS)'
   }
 };
 
 export const QUICK_METRICS: StatItem[] = [
-  { id: 'projects', icon: 'fa-solid fa-cloud-arrow-up', value: '5', label: 'Technical Projects', code: 'LABS_BUILT: 05' },
+  { id: 'projects', icon: 'fa-solid fa-cloud-arrow-up', value: '6', label: 'Technical Projects', code: 'LABS_BUILT: 06' },
   { id: 'cloud', icon: 'fa-solid fa-server', value: 'Azure', label: 'Primary Cloud Focus', code: 'ENV_PRIMARY: AZURE' },
   { id: 'credentials', icon: 'fa-solid fa-certificate', value: '9', label: 'Certifications & Courses', code: 'CERTS_LOG: 09' },
   { id: 'community', icon: 'fa-solid fa-code-pull-request', value: 'GSSoC 26', label: 'Open Source Contributor', code: 'COMMUNITY: ACTIVE' }
@@ -103,7 +103,8 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
       { name: 'Microsoft Azure', context: 'Primary cloud platform' },
       { name: 'Azure Virtual Machines', context: 'Ubuntu Linux deployment & sizing' },
       { name: 'Virtual Networks (VNet)', context: 'Subnet segmentation & CIDR design' },
-      { name: 'Azure RBAC', context: 'Role assignments & permission scoping' }
+      { name: 'Azure RBAC', context: 'Role assignments & permission scoping' },
+      { name: 'Azure Policy', context: 'Resource governance & compliance tagging' }
     ]
   },
   {
@@ -114,6 +115,8 @@ export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
     description: 'Access governance, network perimeter lockdown, and threat analysis.',
     skills: [
       { name: 'Microsoft Entra ID (Azure AD)', context: 'Users, groups & enterprise access' },
+      { name: 'Azure Managed Identity', context: 'Passwordless VM-to-Azure authentication' },
+      { name: 'Azure Key Vault', context: 'Server-side secrets management & VNet ACLs' },
       { name: 'Identity & Access Management (IAM)', context: 'Least privilege & role validation' },
       { name: 'Network Security (NSG)', context: 'Inbound/outbound port filtering' },
       { name: 'Phishing Awareness', context: 'Social engineering vector identification' },
@@ -190,6 +193,118 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
+    id: 'togetherly-azure-platform',
+    category: 'azure',
+    isFeatured: true,
+    featuredLabel: 'FLAGSHIP AZURE PROJECT',
+    title: 'Togetherly Azure Platform',
+    subtitle: 'Versioned Azure Cloud Engineering & Security Platform',
+    description:
+      'My flagship, versioned Microsoft Azure cloud engineering project built around the Togetherly Workforce application. Each release adds a practical layer of cloud hosting, identity, secrets management, governance, and security operations aligned with my Microsoft certification milestones.',
+    contextNote:
+      'V1 (AZ-900 alignment) and V2 (completed after SC-900) are implemented, verified with 26 sanitised evidence screenshots, and released as v2.0.0. V3 (post AZ-104) and V4 (post SC-500) are planned next versions.',
+    lifecycleNote:
+      'Build -> Verify -> Document -> Decommission lifecycle: temporary Azure resource group (rg-togetherly-platform) was deleted on 10 Nov 2026 after verification and evidence preservation. This repository is the documented implementation record rather than a live public deployment.',
+    keyHighlights: [
+      'V1 (v1.0.0): Ubuntu 24.04 Azure VM, VNet/subnet, NSG, Nginx with Let\'s Encrypt HTTPS, React/Vite frontend & systemd Express API',
+      'V2 (v2.0.0): System-assigned Managed Identity, Azure Key Vault (DefaultAzureCredential + SecretClient), RBAC & VNet service endpoint',
+      'Governance: Applied Project=Togetherly Azure Policy (DoNotEnforce), recording 8/8 evaluated resources compliant at scan time',
+      'Scope Transparency: 26 sanitised V1/V2 evidence screenshots; used Key Vault network ACLs + service endpoint (no Private Endpoint or Azure Functions)'
+    ],
+    versions: [
+      {
+        version: 'V1',
+        title: 'Initial Azure Deployment',
+        certTrack: 'AZ-900',
+        status: 'Completed',
+        releaseTag: 'v1.0.0',
+        releaseUrl: 'https://github.com/Faizankhan-cyber/togetherly-azure-platform/releases/tag/v1.0.0',
+        summary:
+          'Established the cloud hosting foundation for Togetherly Workforce on an Ubuntu 24.04 Azure VM in Central India with HTTPS reverse-proxying.',
+        highlights: [
+          'Provisioned Azure VNet, application subnet, and Network Security Group (NSG)',
+          'Configured Nginx serving the React/Vite frontend with Let\'s Encrypt HTTPS TLS certificates',
+          'Deployed Node.js Express API as a systemd service proxied at /api/tinyfish/* on 127.0.0.1:3001',
+          'Verified Supabase & TinyFish workflows and archived 12 sanitised implementation screenshots'
+        ]
+      },
+      {
+        version: 'V2',
+        title: 'Identity, Secrets & Governance',
+        certTrack: 'SC-900',
+        status: 'Completed',
+        releaseTag: 'v2.0.0',
+        releaseUrl: 'https://github.com/Faizankhan-cyber/togetherly-azure-platform/releases/tag/v2.0.0',
+        summary:
+          'Hardened the V1 hosting architecture with passwordless Managed Identity, Azure Key Vault secret retrieval, scoped RBAC, and Azure Policy governance.',
+        highlights: [
+          'Enabled System-assigned Managed Identity on the VM and removed TINYFISH-API-KEY from .env',
+          'Updated Express API to retrieve secrets server-side via DefaultAzureCredential and SecretClient',
+          'Assigned Key Vault Secrets User/Officer RBAC roles and enabled Microsoft.KeyVault VNet service endpoint + ACLs',
+          'Evaluated Project=Togetherly Azure Policy (DoNotEnforce) with 8/8 resources compliant and 14 sanitised screenshots'
+        ]
+      },
+      {
+        version: 'V3',
+        title: 'Hardening, Operations & IaC',
+        certTrack: 'AZ-104',
+        status: 'Planned',
+        summary:
+          'Planned rebuild of the V1/V2 baseline using source-controlled Azure Bicep templates, GitHub Actions OIDC, monitoring, backups, and VM patching.',
+        highlights: [
+          'Rebuild V1 and V2 infrastructure from scratch using Azure Bicep with what-if validation',
+          'Configure passwordless CI/CD deployment authentication via GitHub Actions OIDC',
+          'Implement network hardening, Azure Monitor, Log Analytics, and actionable alerting',
+          'Establish tested backup/restore workflows, OS patching schedules, and operational runbooks'
+        ]
+      },
+      {
+        version: 'V4',
+        title: 'Detection & Investigation',
+        certTrack: 'SC-500',
+        status: 'Planned',
+        summary:
+          'Planned security operations layer adding Microsoft Sentinel, KQL detection queries, Python posture checks, and incident investigation workflows.',
+        highlights: [
+          'Deploy Microsoft Sentinel with defined ingestion, retention, permission, and cost guardrails',
+          'Author KQL detection rules for identity, secrets access, and cloud infrastructure anomalies',
+          'Build Python security posture checks and perform authorised testing on owned resources',
+          'Document structured incident investigation playbooks and reporting templates'
+        ]
+      }
+    ],
+    status: 'V2.0.0 RELEASED',
+    tags: [
+      'Microsoft Azure',
+      'Managed Identity',
+      'Azure Key Vault',
+      'Azure RBAC',
+      'Azure Policy',
+      'VNet & NSG',
+      'Ubuntu Linux',
+      'Nginx',
+      'Node.js'
+    ],
+    githubUrl: 'https://github.com/Faizankhan-cyber/togetherly-azure-platform',
+    secondaryLinks: [
+      {
+        label: 'Release v2.0.0',
+        url: 'https://github.com/Faizankhan-cyber/togetherly-azure-platform/releases/tag/v2.0.0',
+        icon: 'fa-solid fa-tag'
+      },
+      {
+        label: 'Evidence (26)',
+        url: 'https://github.com/Faizankhan-cyber/togetherly-azure-platform/tree/main/evidence',
+        icon: 'fa-solid fa-folder-open'
+      },
+      {
+        label: 'Togetherly App Repo',
+        url: 'https://github.com/Faizankhan-cyber/togetherly-workforce',
+        icon: 'fa-solid fa-code-branch'
+      }
+    ]
+  },
+  {
     id: 'entra-id-rbac',
     category: 'azure',
     title: 'Microsoft Entra ID & Azure RBAC: Identity and Access Management',
@@ -265,7 +380,7 @@ export const PROJECTS: ProjectItem[] = [
     status: 'LIVE DEMO',
     tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
     githubUrl: 'https://github.com/Faizankhan-cyber/togetherly-workforce',
-    liveUrl: 'https://togetherly-omega.vercel.app/',
+    liveUrl: 'https://togetherly-tinyfish.vercel.app/',
     eventContext: 'Hackathon at AMC Engineering College (Team Weird Minds)'
   },
   {
@@ -298,6 +413,7 @@ export const CREDENTIALS: CredentialItem[] = [
     verificationStatus: 'Completed & Earned',
     isFeatured: true,
     isFlaggedForReview: false,
+    credentialUrl: 'https://learn.microsoft.com/en-us/users/faizankhankhaleel-1618/credentials/69f9fef53535b00b',
     topics: [
       'Microsoft Entra ID & RBAC governance',
       'Security, compliance & identity fundamentals',
@@ -396,12 +512,13 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
     description:
       'Dedicated learning journey alongside BCA coursework. Setting up cloud laboratories in Microsoft Azure, conducting hands-on Linux administration, practicing defensive reconnaissance, and implementing infrastructure-as-code.',
     points: [
+      'Architected and released V1 & V2 of Togetherly Azure Platform with Managed Identity, Key Vault, RBAC, and Azure Policy',
       'Built standalone Microsoft Entra ID and Azure RBAC permission matrices',
       'Configured hardened Ubuntu web servers with custom VNets and NSGs on Azure',
       'Participated in college and inter-college hackathons (Smart India Hackathon internal event, AMC Hackathon)',
       'Documented lab procedures, network topologies, and security configurations on GitHub'
     ],
-    tags: ['Azure', 'Linux', 'Entra ID', 'Terraform', 'Hackathons']
+    tags: ['Azure', 'Key Vault', 'Managed Identity', 'Linux', 'Entra ID', 'Terraform', 'Hackathons']
   }
 ];
 

@@ -43,7 +43,11 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="portfolio-app">
+    <div className={`portfolio-app ${isResumeOpen ? 'resume-modal-active' : ''}`}>
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
+
       {/* Background Cyber Grid & Subtle Glow */}
       <BackgroundGlow />
       <NetworkCanvas />

@@ -30,6 +30,23 @@ export interface SkillCategoryGroup {
   skills: SkillItem[];
 }
 
+export interface ProjectVersionItem {
+  version: string;
+  title: string;
+  certTrack: string;
+  status: 'Completed' | 'Planned';
+  releaseTag?: string;
+  releaseUrl?: string;
+  summary: string;
+  highlights: string[];
+}
+
+export interface ProjectSecondaryLink {
+  label: string;
+  url: string;
+  icon: string;
+}
+
 export interface ProjectItem {
   id: string;
   category: 'azure' | 'hackathon';
@@ -37,13 +54,17 @@ export interface ProjectItem {
   subtitle: string;
   description: string;
   keyHighlights: string[];
-  status: 'DEPLOYED LAB' | 'HACKATHON BUILD' | 'LIVE DEMO' | 'STANDALONE LAB';
+  status: 'DEPLOYED LAB' | 'HACKATHON BUILD' | 'LIVE DEMO' | 'STANDALONE LAB' | 'V2.0.0 RELEASED';
   isProminent?: boolean;
   isFeatured?: boolean;
+  featuredLabel?: string;
   contextNote?: string;
+  lifecycleNote?: string;
+  versions?: ProjectVersionItem[];
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
+  secondaryLinks?: ProjectSecondaryLink[];
   eventContext?: string;
 }
 

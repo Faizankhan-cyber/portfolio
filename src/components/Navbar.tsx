@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -9,6 +9,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const navLinks = [
     { href: '#about', label: 'About', id: 'about' },
@@ -64,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
 
   return (
     <header className={isScrolled ? 'scrolled' : ''}>
-      <nav className="navbar container" aria-label="Main Navigation">
+      <nav ref={navRef} className="navbar container" aria-label="Main Navigation">
         {/* Terminal-inspired Logo */}
         <a
           href="#home"

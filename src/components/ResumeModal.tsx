@@ -44,32 +44,37 @@ ACADEMIC BACKGROUND
   ${PERSONAL_INFO.college}, Bengaluru, Karnataka, India
 
 TECHNICAL COMPETENCIES
-• Cloud Infrastructure: Microsoft Azure, Azure Virtual Machines, Virtual Networks (VNet), Azure RBAC
-• Identity & Security: Microsoft Entra ID, Identity & Access Management (IAM), Network Security, Threat Analysis
+• Cloud Infrastructure: Microsoft Azure, Azure Virtual Machines, Virtual Networks (VNet), Azure RBAC, Azure Policy
+• Identity & Security: Microsoft Entra ID, Azure Managed Identity, Azure Key Vault, Identity & Access Management (IAM), Network Security, Threat Analysis
 • Systems & Administration: Linux (Ubuntu), SSH Key Authentication, Command-Line Operations
 • Automation & Development: Terraform, Python, JavaScript, Node.js, Git, GitHub
 • Web Development: React, TypeScript, Vite, Tailwind CSS, Vercel
 
 FEATURED TECHNICAL PROJECTS
-1. Microsoft Entra ID & Azure RBAC: Identity and Access Management [Azure Projects]
+1. Togetherly Azure Platform [FLAGSHIP AZURE PROJECT — V2.0.0 RELEASED]
+   - Versioned Azure cloud engineering & security project for Togetherly Workforce (V1/V2 completed, V3/V4 planned).
+   - V1 (AZ-900): Ubuntu 24.04 VM, VNet, NSG, Nginx HTTPS, systemd Express API. V2 (SC-900): Managed Identity, Key Vault, RBAC, VNet service endpoint & Azure Policy (8/8 compliant).
+   - Repo: https://github.com/Faizankhan-cyber/togetherly-azure-platform | Release: https://github.com/Faizankhan-cyber/togetherly-azure-platform/releases/tag/v2.0.0
+
+2. Microsoft Entra ID & Azure RBAC: Identity and Access Management [Azure Projects]
    - Standalone IAM lab configuring test users, security groups, and least-privilege Azure RBAC scoping with Terraform.
    - Built after completing Microsoft SC-900 exam.
    - Repo: https://github.com/Faizankhan-cyber/microsoft-entra-id-azure-rbac-standalone
 
-2. Secure Linux Web Server on Azure [Azure Projects]
+3. Secure Linux Web Server on Azure [Azure Projects]
    - Hardened Ubuntu VM inside custom Azure VNet with NSG firewall rules, SSH keys, and Nginx.
    - Built after completing Microsoft AZ-900 exam to apply Azure fundamentals.
    - Repo: https://github.com/Faizankhan-cyber/secure-linux-web-server-azure
 
-3. Togetherly | Workforce Intelligence Platform [FEATURED HACKATHON PROJECT]
+4. Togetherly | Workforce Intelligence Platform [FEATURED HACKATHON PROJECT]
    - Workforce intelligence platform developed during hackathon at AMC Engineering College with Team Weird Minds.
-   - Live: https://togetherly-omega.vercel.app/ | Repo: https://github.com/Faizankhan-cyber/togetherly-workforce
+   - Live: https://togetherly-tinyfish.vercel.app/ | Repo: https://github.com/Faizankhan-cyber/togetherly-workforce
 
-4. ThreatLens | Digital Threat Detection Platform [Hackathon Projects]
+5. ThreatLens | Digital Threat Detection Platform [Hackathon Projects]
    - Digital threat investigation platform built for internal Smart India Hackathon at SSMRV College with Team Cloud Sentinals.
    - Live: https://threatlens-project.vercel.app/ | Repo: https://github.com/Faizankhan-cyber/ThreatLens
 
-5. BountyVault | Decentralized Escrow System [Hackathon Projects]
+6. BountyVault | Decentralized Escrow System [Hackathon Projects]
    - Blockchain-based escrow project on Algorand for smart-contract fund locking, release, and refund conditions.
    - Live: https://bountyvault-project.vercel.app/ | Repo: https://github.com/Faizankhan-cyber/bountyvault
 
@@ -78,7 +83,7 @@ EXPERIENCE & COMMUNITY
 • Self-Directed Cloud & Security Lab Practice (Sept 2025 – Present)
 
 COMPLETED CREDENTIALS & LEARNING ACHIEVEMENTS
-• Microsoft: Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900) [Earned Vendor Certification]
+• Microsoft: Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900) [Earned Vendor Certification] — Verify: https://learn.microsoft.com/en-us/users/faizankhankhaleel-1618/credentials/69f9fef53535b00b
 • DataCamp: Understanding Azure Fundamentals (AZ-900)
 • DataCamp: GitHub Foundations
 • DataCamp: Introduction to Python for Developers
@@ -160,7 +165,7 @@ COMPLETED CREDENTIALS & LEARNING ACHIEVEMENTS
                     {proj.title}
                     {proj.isFeatured && (
                       <span style={{ marginLeft: '8px', fontSize: '0.7rem', color: '#050807', background: 'var(--primary)', padding: '2px 6px', borderRadius: '3px' }}>
-                        FEATURED
+                        {proj.featuredLabel || 'FEATURED'}
                       </span>
                     )}
                   </strong>
@@ -176,6 +181,11 @@ COMPLETED CREDENTIALS & LEARNING ACHIEVEMENTS
                   {proj.liveUrl && (
                     <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary-light)', textDecoration: 'underline' }}>
                       Live Demo: {proj.liveUrl.replace('https://', '')}
+                    </a>
+                  )}
+                  {proj.secondaryLinks && proj.secondaryLinks[0] && (
+                    <a href={proj.secondaryLinks[0].url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary-light)', textDecoration: 'underline' }}>
+                      {proj.secondaryLinks[0].label}
                     </a>
                   )}
                 </div>
@@ -197,9 +207,21 @@ COMPLETED CREDENTIALS & LEARNING ACHIEVEMENTS
           <div className="resume-section-title">04 // COMPLETED CREDENTIALS</div>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {CREDENTIALS.filter((c) => !c.isFlaggedForReview).map((cert) => (
-              <li key={cert.id} style={{ fontSize: '0.84rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <li key={cert.id} style={{ fontSize: '0.84rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
                 <span style={{ color: 'var(--primary)' }}>✓</span>
-                <strong>{cert.issuer}:</strong> {cert.title} ({cert.verificationStatus})
+                <span>
+                  <strong>{cert.issuer}:</strong> {cert.title} ({cert.verificationStatus})
+                </span>
+                {cert.credentialUrl && (
+                  <a
+                    href={cert.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'var(--primary)', textDecoration: 'underline', fontSize: '0.78rem' }}
+                  >
+                    Verify Credential
+                  </a>
+                )}
               </li>
             ))}
           </ul>

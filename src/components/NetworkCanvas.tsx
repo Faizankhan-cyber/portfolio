@@ -4,7 +4,6 @@ export const NetworkCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    // Respect user's motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
@@ -14,7 +13,7 @@ export const NetworkCanvas: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let animationFrameId: number;
+    let animationFrameId: number | null = null;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
@@ -34,7 +33,7 @@ export const NetworkCanvas: React.FC = () => {
     }
 
     const particles: Particle[] = [];
-    const particleCount = Math.min(50, Math.floor(width / 30));
+    const particleCount = Math.min(45, Math.floor(width / 34));
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -80,11 +79,36 @@ export const NetworkCanvas: React.FC = () => {
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    const startAnimation = () => {
+      if (animationFrameId === null) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    const stopAnimation = () => {
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else {
+        startAnimation();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    if (!document.hidden) {
+      startAnimation();
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      stopAnimation();
     };
   }, []);
 
@@ -92,6 +116,7 @@ export const NetworkCanvas: React.FC = () => {
     <canvas
       id="networkCanvas"
       ref={canvasRef}
+      aria-hidden="true"
       style={{
         position: 'fixed',
         inset: 0,
